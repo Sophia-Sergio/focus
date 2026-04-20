@@ -1,0 +1,1166 @@
+-------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  /Users/sergiotorres/code/focus/bd/entrega/4_5_B_codebook.log
+  log type:  text
+ opened on:   7 Jan 2026, 00:22:23
+
+. codebook
+
+-------------------------------------------------------------------------
+folio                                                        folio. Folio
+-------------------------------------------------------------------------
+
+                  Type: String (str9)
+
+         Unique values: 1,991                     Missing "": 0/1,991
+
+              Examples: "221027"
+                        "331046"
+                        "461082"
+                        "561083"
+
+-------------------------------------------------------------------------
+trt_ctrl                                  trt_ctrl. Tratamiento o Control
+-------------------------------------------------------------------------
+
+                  Type: String (str3)
+
+         Unique values: 2                         Missing "": 0/1,991
+
+            Tabulation: Freq.  Value
+                          677  "CTR"
+                        1,314  "TRT"
+
+-------------------------------------------------------------------------
+tipo                                          tipo. Tipo encuesta (A o B)
+-------------------------------------------------------------------------
+
+                  Type: String (str10), but longest is str1
+
+         Unique values: 1                         Missing "": 0/1,991
+
+            Tabulation: Freq.  Value
+                        1,991  "b"
+
+-------------------------------------------------------------------------
+region                                     region. Region Establecimiento
+-------------------------------------------------------------------------
+
+                  Type: Numeric (byte)
+
+                 Range: [6,13]                        Units: 1
+         Unique values: 3                         Missing .: 0/1,991
+
+            Tabulation: Freq.  Value
+                          319  6
+                          862  8
+                          810  13
+
+-------------------------------------------------------------------------
+rbd                                              rbd. RBD Establecimiento
+-------------------------------------------------------------------------
+
+                  Type: Numeric (long)
+
+                 Range: [2155,40038]                  Units: 1
+         Unique values: 42                        Missing .: 0/1,991
+
+                  Mean:  9805.6
+             Std. dev.: 7706.23
+
+           Percentiles:     10%       25%       50%       75%       90%
+                           2517      4666     10401     10836     18181
+
+-------------------------------------------------------------------------
+nom_est                                   nom_est. Nombre Establecimiento
+-------------------------------------------------------------------------
+
+                  Type: String (str57)
+
+         Unique values: 42                        Missing "": 0/1,991
+
+              Examples: "Colegio Particular Whipple School"
+                        "Escuela Básica Algarrobal"
+                        "Escuela Básica g-n° 737 Santa Emilia"
+                        "Instituto Humanidades San Francisco De Asis"
+
+               Warning: Variable has embedded blanks.
+
+-------------------------------------------------------------------------
+fecha                                       fecha. Fecha toma de encuesta
+-------------------------------------------------------------------------
+
+                  Type: String (str10)
+
+         Unique values: 100                       Missing "": 0/1,991
+
+              Examples: "10-11-2025"
+                        "13-11-2025"
+                        "20-10-2025"
+                        "24-10-2025"
+
+-------------------------------------------------------------------------
+curso                                             curso. Curso estudiante
+-------------------------------------------------------------------------
+
+                  Type: Numeric (byte)
+
+                 Range: [4,5]                         Units: 1
+         Unique values: 2                         Missing .: 0/1,991
+
+            Tabulation: Freq.  Value
+                        1,007  4
+                          984  5
+
+-------------------------------------------------------------------------
+letra                                                  letra. Letra curso
+-------------------------------------------------------------------------
+
+                  Type: String (str1)
+
+         Unique values: 5                         Missing "": 0/1,991
+
+            Tabulation: Freq.  Value
+                        1,322  "A"
+                          550  "B"
+                           34  "C"
+                           41  "D"
+                           44  "E"
+
+-------------------------------------------------------------------------
+rut                                                   rut. Rut estudiante
+-------------------------------------------------------------------------
+
+                  Type: String (str13), but longest is str11
+
+         Unique values: 1,986                     Missing "": 2/1,991
+
+              Examples: "24680602-0"
+                        "24836109-3"
+                        "25006939-1"
+                        "25205420-7"
+
+-------------------------------------------------------------------------
+nombre                                          nombre. Nombre estudiante
+-------------------------------------------------------------------------
+
+                  Type: String (str63), but longest is str52
+
+         Unique values: 1,989                     Missing "": 0/1,991
+
+              Examples: "Calderón José"
+                        "HENRIQUEZ MELLADO, MATEO ALEJANDRO"
+                        "Maylin Acosa"
+                        "SALAMANCA TRONCOSO, KIARA POLETT"
+
+               Warning: Variable has leading, embedded, and trailing blan
+> ks.
+
+-------------------------------------------------------------------------
+sexo                                              sexo. Género estudiante
+-------------------------------------------------------------------------
+
+                  Type: Numeric (byte)
+                 Label: sexo
+
+                 Range: [1,3]                         Units: 1
+         Unique values: 3                         Missing .: 0/1,991
+
+            Tabulation: Freq.   Numeric  Label
+                        1,016         1  Hombre
+                          941         2  Mujer
+                           34         3  Prefiero no decir
+
+-------------------------------------------------------------------------
+p1                                     p1. Con que frecuencia… Pido ayuda
+                                       cuando la necesito, sin miedo a lo
+                                       que piense
+-------------------------------------------------------------------------
+
+                  Type: Numeric (byte)
+                 Label: freq
+
+                 Range: [1,4]                         Units: 1
+         Unique values: 4                         Missing .: 15/1,991
+
+            Tabulation: Freq.   Numeric  Label
+                          173         1  Nunca
+                          430         2  Rara vez
+                          947         3  A veces
+                          426         4  Siempre
+                           15         .  
+
+-------------------------------------------------------------------------
+p2                                     p2. Con que frecuencia… Tomo
+                                       decisiones que me beneficien tanto
+                                       a mí como a los
+-------------------------------------------------------------------------
+
+                  Type: Numeric (byte)
+                 Label: freq
+
+                 Range: [1,4]                         Units: 1
+         Unique values: 4                         Missing .: 31/1,991
+
+            Tabulation: Freq.   Numeric  Label
+                          126         1  Nunca
+                          376         2  Rara vez
+                          882         3  A veces
+                          576         4  Siempre
+                           31         .  
+
+-------------------------------------------------------------------------
+p3                                     p3. Con que frecuencia… Cuando
+                                       tengo un conflicto con alguien, me
+                                       acerco para co
+-------------------------------------------------------------------------
+
+                  Type: Numeric (byte)
+                 Label: freq
+
+                 Range: [1,4]                         Units: 1
+         Unique values: 4                         Missing .: 41/1,991
+
+            Tabulation: Freq.   Numeric  Label
+                          227         1  Nunca
+                          414         2  Rara vez
+                          671         3  A veces
+                          638         4  Siempre
+                           41         .  
+
+-------------------------------------------------------------------------
+p4                                     p4. Con que frecuencia… Digo que
+                                       no cuando me siento presionado(a)
+                                       a hacer algo
+-------------------------------------------------------------------------
+
+                  Type: Numeric (byte)
+                 Label: freq
+
+                 Range: [1,4]                         Units: 1
+         Unique values: 4                         Missing .: 38/1,991
+
+            Tabulation: Freq.   Numeric  Label
+                          166         1  Nunca
+                          309         2  Rara vez
+                          523         3  A veces
+                          955         4  Siempre
+                           38         .  
+
+-------------------------------------------------------------------------
+p5                                     p5. Con que frecuencia… Cuando
+                                       tengo un conflicto con otra
+                                       persona, puedo explic
+-------------------------------------------------------------------------
+
+                  Type: Numeric (byte)
+                 Label: freq
+
+                 Range: [1,4]                         Units: 1
+         Unique values: 4                         Missing .: 56/1,991
+
+            Tabulation: Freq.   Numeric  Label
+                          244         1  Nunca
+                          405         2  Rara vez
+                          667         3  A veces
+                          619         4  Siempre
+                           56         .  
+
+-------------------------------------------------------------------------
+p6        p6. Con que frecuencia… Alguien de tu curso se ha burlado de ti
+-------------------------------------------------------------------------
+
+                  Type: Numeric (byte)
+                 Label: freq
+
+                 Range: [1,4]                         Units: 1
+         Unique values: 4                         Missing .: 17/1,991
+
+            Tabulation: Freq.   Numeric  Label
+                          776         1  Nunca
+                          522         2  Rara vez
+                          501         3  A veces
+                          175         4  Siempre
+                           17         .  
+
+-------------------------------------------------------------------------
+p7                                     p7. Con que frecuencia… Algún
+                                       estudiante ha amenazado con
+                                       pegarle a otro u otra
+-------------------------------------------------------------------------
+
+                  Type: Numeric (byte)
+                 Label: freq
+
+                 Range: [1,4]                         Units: 1
+         Unique values: 4                         Missing .: 36/1,991
+
+            Tabulation: Freq.   Numeric  Label
+                          970         1  Nunca
+                          498         2  Rara vez
+                          376         3  A veces
+                          111         4  Siempre
+                           36         .  
+
+-------------------------------------------------------------------------
+p8               p8. Con que frecuencia… Alguien de tu curso te ha pegado
+-------------------------------------------------------------------------
+
+                  Type: Numeric (byte)
+                 Label: freq
+
+                 Range: [1,4]                         Units: 1
+         Unique values: 4                         Missing .: 32/1,991
+
+            Tabulation: Freq.   Numeric  Label
+                        1,030         1  Nunca
+                          482         2  Rara vez
+                          346         3  A veces
+                          101         4  Siempre
+                           32         .  
+
+-------------------------------------------------------------------------
+p9                                     p9. Con que frecuencia… Cuando
+                                       tengo un conflicto, propongo
+                                       diferentes formas de
+-------------------------------------------------------------------------
+
+                  Type: Numeric (byte)
+                 Label: freq
+
+                 Range: [1,4]                         Units: 1
+         Unique values: 4                         Missing .: 31/1,991
+
+            Tabulation: Freq.   Numeric  Label
+                          268         1  Nunca
+                          452         2  Rara vez
+                          687         3  A veces
+                          553         4  Siempre
+                           31         .  
+
+-------------------------------------------------------------------------
+p10                                    p10. Con que frecuencia… Algún
+                                       estudiante se ha burlado de otro u
+                                       otra
+-------------------------------------------------------------------------
+
+                  Type: Numeric (byte)
+                 Label: freq
+
+                 Range: [1,4]                         Units: 1
+         Unique values: 4                         Missing .: 43/1,991
+
+            Tabulation: Freq.   Numeric  Label
+                          433         1  Nunca
+                          528         2  Rara vez
+                          710         3  A veces
+                          277         4  Siempre
+                           43         .  
+
+-------------------------------------------------------------------------
+p11                                    p11. Con que frecuencia… Decido
+                                       por mí mismo(a) sin importar lo
+                                       que hacen o dice
+-------------------------------------------------------------------------
+
+                  Type: Numeric (byte)
+                 Label: freq
+
+                 Range: [1,4]                         Units: 1
+         Unique values: 4                         Missing .: 24/1,991
+
+            Tabulation: Freq.   Numeric  Label
+                          228         1  Nunca
+                          408         2  Rara vez
+                          698         3  A veces
+                          633         4  Siempre
+                           24         .  
+
+-------------------------------------------------------------------------
+p12                                    p12. Con que frecuencia… Elijo
+                                       hacer lo correcto, aunque mis
+                                       amigos elijan otra
+-------------------------------------------------------------------------
+
+                  Type: Numeric (byte)
+                 Label: freq
+
+                 Range: [1,4]                         Units: 1
+         Unique values: 4                         Missing .: 32/1,991
+
+            Tabulation: Freq.   Numeric  Label
+                          107         1  Nunca
+                          277         2  Rara vez
+                          771         3  A veces
+                          804         4  Siempre
+                           32         .  
+
+-------------------------------------------------------------------------
+p13                                    p13. Con que frecuencia… Entiendo
+                                       con facilidad por qué ocurren los
+                                       conflictos c
+-------------------------------------------------------------------------
+
+                  Type: Numeric (byte)
+                 Label: freq
+
+                 Range: [1,4]                         Units: 1
+         Unique values: 4                         Missing .: 42/1,991
+
+            Tabulation: Freq.   Numeric  Label
+                          185         1  Nunca
+                          400         2  Rara vez
+                          695         3  A veces
+                          669         4  Siempre
+                           42         .  
+
+-------------------------------------------------------------------------
+p14                                    p14. Con que frecuencia… Digo lo
+                                       que pienso sin tratar mal a las
+                                       otras personas
+-------------------------------------------------------------------------
+
+                  Type: Numeric (byte)
+                 Label: freq
+
+                 Range: [1,4]                         Units: 1
+         Unique values: 4                         Missing .: 37/1,991
+
+            Tabulation: Freq.   Numeric  Label
+                          204         1  Nunca
+                          272         2  Rara vez
+                          654         3  A veces
+                          824         4  Siempre
+                           37         .  
+
+-------------------------------------------------------------------------
+p15                                    p15. Con que frecuencia… Expreso
+                                       mi opinión aunque sea distinta a
+                                       la de mis comp
+-------------------------------------------------------------------------
+
+                  Type: Numeric (byte)
+                 Label: freq
+
+                 Range: [1,4]                         Units: 1
+         Unique values: 4                         Missing .: 27/1,991
+
+            Tabulation: Freq.   Numeric  Label
+                          223         1  Nunca
+                          372         2  Rara vez
+                          617         3  A veces
+                          752         4  Siempre
+                           27         .  
+
+-------------------------------------------------------------------------
+p16                                    p16. Con que frecuencia… Intento
+                                       hacer lo correcto sin que me lo
+                                       digan
+-------------------------------------------------------------------------
+
+                  Type: Numeric (byte)
+                 Label: freq
+
+                 Range: [1,4]                         Units: 1
+         Unique values: 4                         Missing .: 14/1,991
+
+            Tabulation: Freq.   Numeric  Label
+                           93         1  Nunca
+                          219         2  Rara vez
+                          845         3  A veces
+                          820         4  Siempre
+                           14         .  
+
+-------------------------------------------------------------------------
+p17                                    p17. Con que frecuencia… Has
+                                       sentido miedo de que otros
+                                       estudiantes se burlen de
+-------------------------------------------------------------------------
+
+                  Type: Numeric (byte)
+                 Label: freq
+
+                 Range: [1,4]                         Units: 1
+         Unique values: 4                         Missing .: 25/1,991
+
+            Tabulation: Freq.   Numeric  Label
+                          624         1  Nunca
+                          363         2  Rara vez
+                          495         3  A veces
+                          484         4  Siempre
+                           25         .  
+
+-------------------------------------------------------------------------
+p18                                    p18. Con que frecuencia… Tomo en
+                                       cuenta las consecuencias que
+                                       tendrán mis accion
+-------------------------------------------------------------------------
+
+                  Type: Numeric (byte)
+                 Label: freq
+
+                 Range: [1,4]                         Units: 1
+         Unique values: 4                         Missing .: 29/1,991
+
+            Tabulation: Freq.   Numeric  Label
+                          112         1  Nunca
+                          356         2  Rara vez
+                          698         3  A veces
+                          796         4  Siempre
+                           29         .  
+
+-------------------------------------------------------------------------
+p19                                    p19. Con que frecuencia… Cuando
+                                       alguien hace algo que no me gusta,
+                                       le digo que p
+-------------------------------------------------------------------------
+
+                  Type: Numeric (byte)
+                 Label: freq
+
+                 Range: [1,4]                         Units: 1
+         Unique values: 4                         Missing .: 25/1,991
+
+            Tabulation: Freq.   Numeric  Label
+                          136         1  Nunca
+                          237         2  Rara vez
+                          580         3  A veces
+                        1,013         4  Siempre
+                           25         .  
+
+-------------------------------------------------------------------------
+p20                                    p20. Nivel de acuerdo con… Las
+                                       clases de Orientación son
+                                       entretenidas
+-------------------------------------------------------------------------
+
+                  Type: Numeric (byte)
+                 Label: nivel_acuerdo
+
+                 Range: [1,4]                         Units: 1
+         Unique values: 4                         Missing .: 19/1,991
+
+            Tabulation: Freq.   Numeric  Label
+                          116         1  No es cierto
+                          361         2  Poco cierto
+                          663         3  Bastante Cierto
+                          832         4  Muy cierto
+                           19         .  
+
+-------------------------------------------------------------------------
+p21                                    p21. Nivel de acuerdo con… El
+                                       profesor o profesora de
+                                       Orientación es cercano(a)
+-------------------------------------------------------------------------
+
+                  Type: Numeric (byte)
+                 Label: nivel_acuerdo
+
+                 Range: [1,4]                         Units: 1
+         Unique values: 4                         Missing .: 28/1,991
+
+            Tabulation: Freq.   Numeric  Label
+                          260         1  No es cierto
+                          446         2  Poco cierto
+                          644         3  Bastante Cierto
+                          613         4  Muy cierto
+                           28         .  
+
+-------------------------------------------------------------------------
+p22                                    p22. Nivel de acuerdo con… La
+                                       clase de Orientación me ha ayudado
+                                       a conocerme mej
+-------------------------------------------------------------------------
+
+                  Type: Numeric (byte)
+                 Label: nivel_acuerdo
+
+                 Range: [1,4]                         Units: 1
+         Unique values: 4                         Missing .: 31/1,991
+
+            Tabulation: Freq.   Numeric  Label
+                          191         1  No es cierto
+                          369         2  Poco cierto
+                          607         3  Bastante Cierto
+                          793         4  Muy cierto
+                           31         .  
+
+-------------------------------------------------------------------------
+p23                                    p23. Nivel de acuerdo con… Le
+                                       pondría una buena nota a la clase
+                                       de Orientación
+-------------------------------------------------------------------------
+
+                  Type: Numeric (byte)
+                 Label: nivel_acuerdo
+
+                 Range: [1,4]                         Units: 1
+         Unique values: 4                         Missing .: 27/1,991
+
+            Tabulation: Freq.   Numeric  Label
+                          118         1  No es cierto
+                          260         2  Poco cierto
+                          596         3  Bastante Cierto
+                          990         4  Muy cierto
+                           27         .  
+
+-------------------------------------------------------------------------
+p24                                    p24. Nivel de acuerdo con… Uso lo
+                                       que aprendí en la clase de
+                                       Orientación cuando
+-------------------------------------------------------------------------
+
+                  Type: Numeric (byte)
+                 Label: nivel_acuerdo
+
+                 Range: [1,4]                         Units: 1
+         Unique values: 4                         Missing .: 29/1,991
+
+            Tabulation: Freq.   Numeric  Label
+                          263         1  No es cierto
+                          519         2  Poco cierto
+                          677         3  Bastante Cierto
+                          503         4  Muy cierto
+                           29         .  
+
+-------------------------------------------------------------------------
+p25                                    p25. Nivel de acuerdo con… Creo
+                                       que lo que aprendí en la clase de
+                                       Orientación se
+-------------------------------------------------------------------------
+
+                  Type: Numeric (byte)
+                 Label: nivel_acuerdo
+
+                 Range: [1,4]                         Units: 1
+         Unique values: 4                         Missing .: 25/1,991
+
+            Tabulation: Freq.   Numeric  Label
+                          158         1  No es cierto
+                          292         2  Poco cierto
+                          553         3  Bastante Cierto
+                          963         4  Muy cierto
+                           25         .  
+
+-------------------------------------------------------------------------
+p26                                    p26. Nivel de acuerdo con… Los y
+                                       las estudiantes de mi curso nos
+                                       tratamos con re
+-------------------------------------------------------------------------
+
+                  Type: Numeric (byte)
+                 Label: nivel_acuerdo
+
+                 Range: [1,4]                         Units: 1
+         Unique values: 4                         Missing .: 21/1,991
+
+            Tabulation: Freq.   Numeric  Label
+                          202         1  No es cierto
+                          680         2  Poco cierto
+                          718         3  Bastante Cierto
+                          370         4  Muy cierto
+                           21         .  
+
+-------------------------------------------------------------------------
+p27                                    p27. Nivel de acuerdo con… Es
+                                       fácil para mí explicar con
+                                       palabras las emociones
+-------------------------------------------------------------------------
+
+                  Type: Numeric (byte)
+                 Label: nivel_acuerdo
+
+                 Range: [1,4]                         Units: 1
+         Unique values: 4                         Missing .: 17/1,991
+
+            Tabulation: Freq.   Numeric  Label
+                          393         1  No es cierto
+                          595         2  Poco cierto
+                          561         3  Bastante Cierto
+                          425         4  Muy cierto
+                           17         .  
+
+-------------------------------------------------------------------------
+p28                                    p28. Nivel de acuerdo con… Las
+                                       personas realmente buenas para los
+                                       deportes nacen
+-------------------------------------------------------------------------
+
+                  Type: Numeric (byte)
+                 Label: nivel_acuerdo
+
+                 Range: [1,4]                         Units: 1
+         Unique values: 4                         Missing .: 39/1,991
+
+            Tabulation: Freq.   Numeric  Label
+                          628         1  No es cierto
+                          473         2  Poco cierto
+                          421         3  Bastante Cierto
+                          430         4  Muy cierto
+                           39         .  
+
+-------------------------------------------------------------------------
+p29                                    p29. Nivel de acuerdo con… Trato
+                                       de entender cómo piensan y sienten
+                                       otras person
+-------------------------------------------------------------------------
+
+                  Type: Numeric (byte)
+                 Label: nivel_acuerdo
+
+                 Range: [1,4]                         Units: 1
+         Unique values: 4                         Missing .: 26/1,991
+
+            Tabulation: Freq.   Numeric  Label
+                          129         1  No es cierto
+                          315         2  Poco cierto
+                          795         3  Bastante Cierto
+                          726         4  Muy cierto
+                           26         .  
+
+-------------------------------------------------------------------------
+p30                                    p30. Nivel de acuerdo con… Los y
+                                       las estudiantes de mi curso nos
+                                       esforzamos por
+-------------------------------------------------------------------------
+
+                  Type: Numeric (byte)
+                 Label: nivel_acuerdo
+
+                 Range: [1,4]                         Units: 1
+         Unique values: 4                         Missing .: 38/1,991
+
+            Tabulation: Freq.   Numeric  Label
+                          208         1  No es cierto
+                          565         2  Poco cierto
+                          678         3  Bastante Cierto
+                          502         4  Muy cierto
+                           38         .  
+
+-------------------------------------------------------------------------
+p31                                    p31. Nivel de acuerdo con… Me doy
+                                       cuenta cuando otros sienten algo
+                                       distinto de m
+-------------------------------------------------------------------------
+
+                  Type: Numeric (byte)
+                 Label: nivel_acuerdo
+
+                 Range: [1,4]                         Units: 1
+         Unique values: 4                         Missing .: 37/1,991
+
+            Tabulation: Freq.   Numeric  Label
+                          202         1  No es cierto
+                          401         2  Poco cierto
+                          761         3  Bastante Cierto
+                          590         4  Muy cierto
+                           37         .  
+
+-------------------------------------------------------------------------
+p32                                    p32. Nivel de acuerdo con… Me es
+                                       fácil saber lo que siento en
+                                       distintas situacio
+-------------------------------------------------------------------------
+
+                  Type: Numeric (byte)
+                 Label: nivel_acuerdo
+
+                 Range: [1,4]                         Units: 1
+         Unique values: 4                         Missing .: 32/1,991
+
+            Tabulation: Freq.   Numeric  Label
+                          194         1  No es cierto
+                          484         2  Poco cierto
+                          669         3  Bastante Cierto
+                          612         4  Muy cierto
+                           32         .  
+
+-------------------------------------------------------------------------
+p33                                    p33. Nivel de acuerdo con… Cuando
+                                       tengo una meta, me esfuerzo hasta
+                                       ver resultad
+-------------------------------------------------------------------------
+
+                  Type: Numeric (byte)
+                 Label: nivel_acuerdo
+
+                 Range: [1,4]                         Units: 1
+         Unique values: 4                         Missing .: 27/1,991
+
+            Tabulation: Freq.   Numeric  Label
+                           78         1  No es cierto
+                          237         2  Poco cierto
+                          618         3  Bastante Cierto
+                        1,031         4  Muy cierto
+                           27         .  
+
+-------------------------------------------------------------------------
+p34                                    p34. Nivel de acuerdo con… Cuando
+                                       siento una emoción, me doy cuenta
+                                       cómo reaccio
+-------------------------------------------------------------------------
+
+                  Type: Numeric (byte)
+                 Label: nivel_acuerdo
+
+                 Range: [1,4]                         Units: 1
+         Unique values: 4                         Missing .: 30/1,991
+
+            Tabulation: Freq.   Numeric  Label
+                          162         1  No es cierto
+                          353         2  Poco cierto
+                          684         3  Bastante Cierto
+                          762         4  Muy cierto
+                           30         .  
+
+-------------------------------------------------------------------------
+p35                                    p35. Nivel de acuerdo con… Sé qué
+                                       hacer para calmarme cuando siento
+                                       emociones mu
+-------------------------------------------------------------------------
+
+                  Type: Numeric (byte)
+                 Label: nivel_acuerdo
+
+                 Range: [1,4]                         Units: 1
+         Unique values: 4                         Missing .: 28/1,991
+
+            Tabulation: Freq.   Numeric  Label
+                          276         1  No es cierto
+                          418         2  Poco cierto
+                          614         3  Bastante Cierto
+                          655         4  Muy cierto
+                           28         .  
+
+-------------------------------------------------------------------------
+p36                                    p36. Nivel de acuerdo con… Los y
+                                       las estudiantes de mi curso
+                                       aceptamos a las per
+-------------------------------------------------------------------------
+
+                  Type: Numeric (byte)
+                 Label: nivel_acuerdo
+
+                 Range: [1,4]                         Units: 1
+         Unique values: 4                         Missing .: 25/1,991
+
+            Tabulation: Freq.   Numeric  Label
+                          131         1  No es cierto
+                          379         2  Poco cierto
+                          695         3  Bastante Cierto
+                          761         4  Muy cierto
+                           25         .  
+
+-------------------------------------------------------------------------
+p37                                    p37. Nivel de acuerdo con… Me
+                                       pongo metas para lograr lo que me
+                                       importa
+-------------------------------------------------------------------------
+
+                  Type: Numeric (byte)
+                 Label: nivel_acuerdo
+
+                 Range: [1,4]                         Units: 1
+         Unique values: 4                         Missing .: 25/1,991
+
+            Tabulation: Freq.   Numeric  Label
+                           94         1  No es cierto
+                          235         2  Poco cierto
+                          587         3  Bastante Cierto
+                        1,050         4  Muy cierto
+                           25         .  
+
+-------------------------------------------------------------------------
+p38                                    p38. Nivel de acuerdo con… Se
+                                       pueden aprender cosas nuevas, pero
+                                       no se puede cam
+-------------------------------------------------------------------------
+
+                  Type: Numeric (byte)
+                 Label: nivel_acuerdo
+
+                 Range: [1,4]                         Units: 1
+         Unique values: 4                         Missing .: 40/1,991
+
+            Tabulation: Freq.   Numeric  Label
+                          296         1  No es cierto
+                          360         2  Poco cierto
+                          595         3  Bastante Cierto
+                          700         4  Muy cierto
+                           40         .  
+
+-------------------------------------------------------------------------
+p39                                    p39. Nivel de acuerdo con… Es
+                                       fácil para mi saber la causa de
+                                       mis emociones
+-------------------------------------------------------------------------
+
+                  Type: Numeric (byte)
+                 Label: nivel_acuerdo
+
+                 Range: [1,4]                         Units: 1
+         Unique values: 4                         Missing .: 35/1,991
+
+            Tabulation: Freq.   Numeric  Label
+                          209         1  No es cierto
+                          421         2  Poco cierto
+                          665         3  Bastante Cierto
+                          661         4  Muy cierto
+                           35         .  
+
+-------------------------------------------------------------------------
+p40                                    p40. Nivel de acuerdo con… Me es
+                                       fácil mantener la calma cuando
+                                       estoy en desacue
+-------------------------------------------------------------------------
+
+                  Type: Numeric (byte)
+                 Label: nivel_acuerdo
+
+                 Range: [1,4]                         Units: 1
+         Unique values: 4                         Missing .: 37/1,991
+
+            Tabulation: Freq.   Numeric  Label
+                          163         1  No es cierto
+                          395         2  Poco cierto
+                          709         3  Bastante Cierto
+                          687         4  Muy cierto
+                           37         .  
+
+-------------------------------------------------------------------------
+p41                                    p41. Nivel de acuerdo con… Puedo
+                                       diferenciar entre emociones
+                                       parecidas (enojo y
+-------------------------------------------------------------------------
+
+                  Type: Numeric (byte)
+                 Label: nivel_acuerdo
+
+                 Range: [1,4]                         Units: 1
+         Unique values: 4                         Missing .: 23/1,991
+
+            Tabulation: Freq.   Numeric  Label
+                          169         1  No es cierto
+                          420         2  Poco cierto
+                          654         3  Bastante Cierto
+                          725         4  Muy cierto
+                           23         .  
+
+-------------------------------------------------------------------------
+p42                                    p42. Nivel de acuerdo con… Trato
+                                       de entender por lo que pasa otra
+                                       gente
+-------------------------------------------------------------------------
+
+                  Type: Numeric (byte)
+                 Label: nivel_acuerdo
+
+                 Range: [1,4]                         Units: 1
+         Unique values: 4                         Missing .: 20/1,991
+
+            Tabulation: Freq.   Numeric  Label
+                          104         1  No es cierto
+                          281         2  Poco cierto
+                          786         3  Bastante Cierto
+                          800         4  Muy cierto
+                           20         .  
+
+-------------------------------------------------------------------------
+p43                                    p43. Nivel de acuerdo con… Los y
+                                       las estudiantes de mi curso
+                                       respetamos a quiene
+-------------------------------------------------------------------------
+
+                  Type: Numeric (byte)
+                 Label: nivel_acuerdo
+
+                 Range: [1,4]                         Units: 1
+         Unique values: 4                         Missing .: 37/1,991
+
+            Tabulation: Freq.   Numeric  Label
+                          147         1  No es cierto
+                          398         2  Poco cierto
+                          757         3  Bastante Cierto
+                          652         4  Muy cierto
+                           37         .  
+
+-------------------------------------------------------------------------
+p44                                    p44. Nivel de acuerdo con… Si algo
+                                       no me resulta, lo vuelvo a
+                                       intentar una y otr
+-------------------------------------------------------------------------
+
+                  Type: Numeric (byte)
+                 Label: nivel_acuerdo
+
+                 Range: [1,4]                         Units: 1
+         Unique values: 4                         Missing .: 34/1,991
+
+            Tabulation: Freq.   Numeric  Label
+                          110         1  No es cierto
+                          287         2  Poco cierto
+                          604         3  Bastante Cierto
+                          956         4  Muy cierto
+                           34         .  
+
+-------------------------------------------------------------------------
+p45                                    p45. Nivel de acuerdo con… La
+                                       inteligencia es algo que no se
+                                       puede cambiar mucho
+-------------------------------------------------------------------------
+
+                  Type: Numeric (byte)
+                 Label: nivel_acuerdo
+
+                 Range: [1,4]                         Units: 1
+         Unique values: 4                         Missing .: 45/1,991
+
+            Tabulation: Freq.   Numeric  Label
+                          410         1  No es cierto
+                          440         2  Poco cierto
+                          541         3  Bastante Cierto
+                          555         4  Muy cierto
+                           45         .  
+
+-------------------------------------------------------------------------
+p46                                    p46. Nivel de acuerdo con… Cuando
+                                       estoy enojado(a), respiro profundo
+                                       para calmar
+-------------------------------------------------------------------------
+
+                  Type: Numeric (byte)
+                 Label: nivel_acuerdo
+
+                 Range: [1,4]                         Units: 1
+         Unique values: 4                         Missing .: 19/1,991
+
+            Tabulation: Freq.   Numeric  Label
+                          324         1  No es cierto
+                          445         2  Poco cierto
+                          569         3  Bastante Cierto
+                          634         4  Muy cierto
+                           19         .  
+
+-------------------------------------------------------------------------
+p47                                    p47. Nivel de acuerdo con… Me
+                                       siento mal cuando a alguien le
+                                       hieren los sentimie
+-------------------------------------------------------------------------
+
+                  Type: Numeric (byte)
+                 Label: nivel_acuerdo
+
+                 Range: [1,4]                         Units: 1
+         Unique values: 4                         Missing .: 28/1,991
+
+            Tabulation: Freq.   Numeric  Label
+                          180         1  No es cierto
+                          334         2  Poco cierto
+                          616         3  Bastante Cierto
+                          833         4  Muy cierto
+                           28         .  
+
+-------------------------------------------------------------------------
+p48                                    p48. Nivel de acuerdo con… Las
+                                       personas realmente inteligentes
+                                       tienen buenas not
+-------------------------------------------------------------------------
+
+                  Type: Numeric (byte)
+                 Label: nivel_acuerdo
+
+                 Range: [1,4]                         Units: 1
+         Unique values: 4                         Missing .: 46/1,991
+
+            Tabulation: Freq.   Numeric  Label
+                          266         1  No es cierto
+                          522         2  Poco cierto
+                          533         3  Bastante Cierto
+                          624         4  Muy cierto
+                           46         .  
+
+-------------------------------------------------------------------------
+p49                                    p49. Nivel de acuerdo con… Cuando
+                                       me molestan o insultan, puedo
+                                       controlarme y ac
+-------------------------------------------------------------------------
+
+                  Type: Numeric (byte)
+                 Label: nivel_acuerdo
+
+                 Range: [1,4]                         Units: 1
+         Unique values: 4                         Missing .: 35/1,991
+
+            Tabulation: Freq.   Numeric  Label
+                          302         1  No es cierto
+                          500         2  Poco cierto
+                          615         3  Bastante Cierto
+                          539         4  Muy cierto
+                           35         .  
+
+-------------------------------------------------------------------------
+p50                                    p50. Nivel de acuerdo con… Puedo
+                                       dejar de hacer algo que quiero
+                                       para alcanzar lo
+-------------------------------------------------------------------------
+
+                  Type: Numeric (byte)
+                 Label: nivel_acuerdo
+
+                 Range: [1,4]                         Units: 1
+         Unique values: 4                         Missing .: 28/1,991
+
+            Tabulation: Freq.   Numeric  Label
+                          178         1  No es cierto
+                          361         2  Poco cierto
+                          674         3  Bastante Cierto
+                          750         4  Muy cierto
+                           28         .  
+
+-------------------------------------------------------------------------
+todo                                                          (unlabeled)
+-------------------------------------------------------------------------
+
+                  Type: String (str35)
+
+         Unique values: 1                         Missing "": 1,990/1,991
+
+            Tabulation: Freq.  Value
+                        1,990  ""
+                            1  "revisar, se hizo en encuesta de 6-7"
+
+               Warning: Variable has embedded blanks.
+
+-------------------------------------------------------------------------
+con_negativo                                                  (unlabeled)
+-------------------------------------------------------------------------
+
+                  Type: Numeric (float)
+
+                 Range: [1,1]                         Units: 1
+         Unique values: 1                         Missing .: 1,984/1,991
+
+            Tabulation: Freq.  Value
+                            7  1
+                        1,984  .
+
+-------------------------------------------------------------------------
+valid_rut                                                  Validacion Rut
+-------------------------------------------------------------------------
+
+                  Type: Numeric (byte)
+                 Label: valid
+
+                 Range: [0,1]                         Units: 1
+         Unique values: 2                         Missing .: 0/1,991
+
+            Tabulation: Freq.   Numeric  Label
+                          207         0  Inválido
+                        1,784         1  Válido
+
+. log close
+      name:  <unnamed>
+       log:  /Users/sergiotorres/code/focus/bd/entrega/4_5_B_codebook.log
+  log type:  text
+ closed on:   7 Jan 2026, 00:22:23
+-------------------------------------------------------------------------
