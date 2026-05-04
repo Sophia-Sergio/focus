@@ -1,7 +1,17 @@
 #!/usr/bin/env python3
 """
-Convert 2d_attemp survey JSON files in digitalizadas folder to consolidated CSV files
-Creates 2 consolidated files: 4-5_consolidated_2d_attemp.csv and 6-7_consolidated_2d_attemp.csv
+Convert survey JSON files to consolidated CSV files.
+Creates 2 consolidated files: 4-5_consolidated.csv and 6-7_consolidated.csv
+
+Usage:
+    python3 scripts/output/json_to_csv.py <path_to_folder>
+
+Examples:
+    python3 scripts/output/json_to_csv.py digitalizadas
+    python3 scripts/output/json_to_csv.py "2026-03/pdfs/Avance Regiones"
+
+If no path is provided, defaults to 'digitalizadas'.
+Output CSVs are written into the same folder as the input.
 """
 
 import json
@@ -64,14 +74,7 @@ def process_all_surveys(digitalizadas_path='digitalizadas'):
         print(f"Error: Folder '{digitalizadas_path}' does not exist")
         return
 
-    # Find all JSON files recursively in all subdirectories
-    json_files = []
-    for json_file in base_folder.rglob('*.json'):
-        # Only include files ending with _2d_attemp.json
-        if json_file.name.endswith('_2d_attemp.json'):
-            json_files.append(json_file)
-
-    json_files = sorted(json_files)
+    json_files = sorted(base_folder.rglob('*.json'))
 
     if not json_files:
         print(f"No JSON files found in '{digitalizadas_path}'")
@@ -129,7 +132,7 @@ def process_all_surveys(digitalizadas_path='digitalizadas'):
 
     # Create 4-5 consolidated CSV
     if surveys_4_5:
-        output_file = base_folder / '4-5_consolidated_2d_attemp.csv'
+        output_file = base_folder / '4-5_consolidated.csv'
         max_questions = 50
         question_headers = [f'q{i}' for i in range(1, max_questions + 1)]
         all_headers = metadata_headers + question_headers
@@ -148,7 +151,7 @@ def process_all_surveys(digitalizadas_path='digitalizadas'):
 
     # Create 6-7 consolidated CSV
     if surveys_6_7:
-        output_file = base_folder / '6-7_consolidated_2d_attemp.csv'
+        output_file = base_folder / '6-7_consolidated.csv'
         max_questions = 68
         question_headers = [f'q{i}' for i in range(1, max_questions + 1)]
         all_headers = metadata_headers + question_headers
@@ -166,8 +169,10 @@ def process_all_surveys(digitalizadas_path='digitalizadas'):
         print(f"  - {len(all_headers)} columns (16 metadata + 68 questions)")
 
 def main():
-    print("Consolidating 2d_attemp survey JSON files into CSV format...\n")
-    process_all_surveys('digitalizadas')
+    import sys
+    path = sys.argv[1] if len(sys.argv) > 1 else 'digitalizadas'
+    print(f"Consolidating survey JSON files into CSV format...\n")
+    process_all_surveys(path)
 
 if __name__ == '__main__':
     main()
