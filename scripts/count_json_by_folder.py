@@ -19,7 +19,10 @@ OUTPUT_FILE = Path(__file__).parent / "output" / "pdfs_count_by_folder.csv"
 
 
 def count_pdf_files(folder: Path) -> int:
-    return sum(1 for f in folder.iterdir() if f.suffix == ".pdf" and f.is_file())
+    return sum(
+        1 for f in folder.iterdir()
+        if f.suffix == ".pdf" and f.is_file() and "Lista de Curso" not in f.name
+    )
 
 
 def main():
