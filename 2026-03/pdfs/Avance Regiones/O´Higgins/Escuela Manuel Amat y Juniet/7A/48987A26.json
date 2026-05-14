@@ -1,0 +1,359 @@
+{
+  "metadata": {
+    "type": "A",
+    "student_name": "ARROYO PALMA, VICCNTA AGUSTINA VALENE RAVINA",
+    "student_run": "24521894-K",
+    "valid_rut": true,
+    "student_age": null,
+    "student_gender": 1,
+    "date": "18-03-2026",
+    "survey_id": "48987A26",
+    "grade_range": "6° - 7°",
+    "extraction_date": "2026-05-04",
+    "total_questions": 68,
+    "school_name": "Escuela Manuel Amat y Juniet",
+    "grade_folder": "7A"
+  },
+  "responses": [
+    {
+      "question": "1",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "2",
+      "answer": 1,
+      "notes": ""
+    },
+    {
+      "question": "3",
+      "answer": 1,
+      "notes": ""
+    },
+    {
+      "question": "4",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "5",
+      "answer": 1,
+      "notes": ""
+    },
+    {
+      "question": "6",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "7",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "8",
+      "answer": 1,
+      "notes": ""
+    },
+    {
+      "question": "9",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "10",
+      "answer": 1,
+      "notes": ""
+    },
+    {
+      "question": "11",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "12",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "13",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "14",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "15",
+      "answer": 1,
+      "notes": ""
+    },
+    {
+      "question": "16",
+      "answer": 1,
+      "notes": ""
+    },
+    {
+      "question": "17",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "18",
+      "answer": 1,
+      "notes": ""
+    },
+    {
+      "question": "19",
+      "answer": 1,
+      "notes": ""
+    },
+    {
+      "question": "20",
+      "answer": 1,
+      "notes": ""
+    },
+    {
+      "question": "21",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "22",
+      "answer": 1,
+      "notes": ""
+    },
+    {
+      "question": "23",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "24",
+      "answer": 1,
+      "notes": ""
+    },
+    {
+      "question": "25",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "26",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "27",
+      "answer": 1,
+      "notes": ""
+    },
+    {
+      "question": "28",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "29",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "30",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "31",
+      "answer": 1,
+      "notes": ""
+    },
+    {
+      "question": "32",
+      "answer": 1,
+      "notes": ""
+    },
+    {
+      "question": "33",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "34",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "35",
+      "answer": 1,
+      "notes": ""
+    },
+    {
+      "question": "36",
+      "answer": 1,
+      "notes": ""
+    },
+    {
+      "question": "37",
+      "answer": 1,
+      "notes": ""
+    },
+    {
+      "question": "38",
+      "answer": 1,
+      "notes": ""
+    },
+    {
+      "question": "39",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "40",
+      "answer": 1,
+      "notes": ""
+    },
+    {
+      "question": "41",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "42",
+      "answer": 1,
+      "notes": ""
+    },
+    {
+      "question": "43",
+      "answer": 1,
+      "notes": ""
+    },
+    {
+      "question": "44",
+      "answer": 1,
+      "notes": ""
+    },
+    {
+      "question": "45",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "46",
+      "answer": 1,
+      "notes": ""
+    },
+    {
+      "question": "47",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "48",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "49",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "50",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "51",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "52",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "53",
+      "answer": 1,
+      "notes": ""
+    },
+    {
+      "question": "54",
+      "answer": 1,
+      "notes": ""
+    },
+    {
+      "question": "55",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "56",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "57",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "58",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "59",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "60",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "61",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "62",
+      "answer": 1,
+      "notes": ""
+    },
+    {
+      "question": "63",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "64",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "65",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "66",
+      "answer": 1,
+      "notes": ""
+    },
+    {
+      "question": "67",
+      "answer": 1,
+      "notes": ""
+    },
+    {
+      "question": "68",
+      "answer": 1,
+      "notes": ""
+    }
+  ]
+}

@@ -1,0 +1,359 @@
+{
+  "metadata": {
+    "type": "TEST-B",
+    "student_name": "Taboada Vargas, Gaspar",
+    "student_run": "24926583-4",
+    "valid_rut": false,
+    "student_age": null,
+    "student_gender": null,
+    "date": "26-03-2026",
+    "survey_id": "47376B20",
+    "grade_range": "6° - 7°",
+    "extraction_date": "2026-05-11",
+    "total_questions": 68,
+    "school_name": "COLEGIO BASICO VILLA ACERO",
+    "grade_folder": "6B"
+  },
+  "responses": [
+    {
+      "question": "1",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "2",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "3",
+      "answer": 2,
+      "notes": ""
+    },
+    {
+      "question": "4",
+      "answer": 2,
+      "notes": ""
+    },
+    {
+      "question": "5",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "6",
+      "answer": 4,
+      "notes": ""
+    },
+    {
+      "question": "7",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "8",
+      "answer": 1,
+      "notes": ""
+    },
+    {
+      "question": "9",
+      "answer": 2,
+      "notes": ""
+    },
+    {
+      "question": "10",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "11",
+      "answer": 2,
+      "notes": ""
+    },
+    {
+      "question": "12",
+      "answer": 4,
+      "notes": ""
+    },
+    {
+      "question": "13",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "14",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "15",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "16",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "17",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "18",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "19",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "20",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "21",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "22",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "23",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "24",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "25",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "26",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "27",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "28",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "29",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "30",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "31",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "32",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "33",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "34",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "35",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "36",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "37",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "38",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "39",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "40",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "41",
+      "answer": 2,
+      "notes": ""
+    },
+    {
+      "question": "42",
+      "answer": 4,
+      "notes": ""
+    },
+    {
+      "question": "43",
+      "answer": 2,
+      "notes": ""
+    },
+    {
+      "question": "44",
+      "answer": 2,
+      "notes": ""
+    },
+    {
+      "question": "45",
+      "answer": 2,
+      "notes": ""
+    },
+    {
+      "question": "46",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "47",
+      "answer": 1,
+      "notes": ""
+    },
+    {
+      "question": "48",
+      "answer": 1,
+      "notes": ""
+    },
+    {
+      "question": "49",
+      "answer": 4,
+      "notes": ""
+    },
+    {
+      "question": "50",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "51",
+      "answer": 2,
+      "notes": ""
+    },
+    {
+      "question": "52",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "53",
+      "answer": 2,
+      "notes": ""
+    },
+    {
+      "question": "54",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "55",
+      "answer": 4,
+      "notes": ""
+    },
+    {
+      "question": "56",
+      "answer": 1,
+      "notes": ""
+    },
+    {
+      "question": "57",
+      "answer": 4,
+      "notes": ""
+    },
+    {
+      "question": "58",
+      "answer": 2,
+      "notes": ""
+    },
+    {
+      "question": "59",
+      "answer": 1,
+      "notes": ""
+    },
+    {
+      "question": "60",
+      "answer": 2,
+      "notes": ""
+    },
+    {
+      "question": "61",
+      "answer": 4,
+      "notes": ""
+    },
+    {
+      "question": "62",
+      "answer": 2,
+      "notes": ""
+    },
+    {
+      "question": "63",
+      "answer": 1,
+      "notes": ""
+    },
+    {
+      "question": "64",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "65",
+      "answer": 2,
+      "notes": ""
+    },
+    {
+      "question": "66",
+      "answer": 2,
+      "notes": ""
+    },
+    {
+      "question": "67",
+      "answer": 1,
+      "notes": ""
+    },
+    {
+      "question": "68",
+      "answer": 3,
+      "notes": ""
+    }
+  ]
+}

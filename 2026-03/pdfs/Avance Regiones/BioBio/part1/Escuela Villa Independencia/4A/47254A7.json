@@ -1,0 +1,269 @@
+{
+  "metadata": {
+    "type": "A",
+    "student_name": "ESPINOSA ABURTO, NAHUEL ANCATU",
+    "student_run": "null",
+    "valid_rut": false,
+    "student_age": 9,
+    "student_gender": 1,
+    "date": "30-03-2026",
+    "survey_id": "47254A7",
+    "grade_range": "4° - 5°",
+    "extraction_date": "2026-05-11",
+    "total_questions": 50,
+    "school_name": "Escuela Villa Independencia",
+    "grade_folder": "4A"
+  },
+  "responses": [
+    {
+      "question": "1",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "2",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "3",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "4",
+      "answer": 4,
+      "notes": ""
+    },
+    {
+      "question": "5",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "6",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "7",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "8",
+      "answer": 2,
+      "notes": ""
+    },
+    {
+      "question": "9",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "10",
+      "answer": 2,
+      "notes": ""
+    },
+    {
+      "question": "11",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "12",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "13",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "14",
+      "answer": 4,
+      "notes": ""
+    },
+    {
+      "question": "15",
+      "answer": 4,
+      "notes": ""
+    },
+    {
+      "question": "16",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "17",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "18",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "19",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "20",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "21",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "22",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "23",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "24",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "25",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "26",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "27",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "28",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "29",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "30",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "31",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "32",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "33",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "34",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "35",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "36",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "37",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "38",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "39",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "40",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "41",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "42",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "43",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "44",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "45",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "46",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "47",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "48",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "49",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "50",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    }
+  ]
+}

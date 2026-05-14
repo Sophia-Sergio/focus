@@ -1,0 +1,359 @@
+{
+  "metadata": {
+    "type": "A",
+    "student_name": "SOTO LAGOS PEREZA",
+    "student_run": "20062026-0",
+    "valid_rut": false,
+    "student_age": 12,
+    "student_gender": 1,
+    "date": "20-06-2026",
+    "survey_id": "177797B11",
+    "grade_range": "6° - 7°",
+    "extraction_date": "2026-05-03",
+    "total_questions": 68,
+    "school_name": "COLEGIO PACIFIC SCHOOL",
+    "grade_folder": "7B"
+  },
+  "responses": [
+    {
+      "question": "1",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "2",
+      "answer": 4,
+      "notes": ""
+    },
+    {
+      "question": "3",
+      "answer": 2,
+      "notes": ""
+    },
+    {
+      "question": "4",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "5",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "6",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "7",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "8",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "9",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "10",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "11",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "12",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "13",
+      "answer": 4,
+      "notes": ""
+    },
+    {
+      "question": "14",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "15",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "16",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "17",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "18",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "19",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "20",
+      "answer": 4,
+      "notes": ""
+    },
+    {
+      "question": "21",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "22",
+      "answer": 2,
+      "notes": ""
+    },
+    {
+      "question": "23",
+      "answer": 4,
+      "notes": ""
+    },
+    {
+      "question": "24",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "25",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "26",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "27",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "28",
+      "answer": 4,
+      "notes": ""
+    },
+    {
+      "question": "29",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "30",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "31",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "32",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "33",
+      "answer": 4,
+      "notes": ""
+    },
+    {
+      "question": "34",
+      "answer": 4,
+      "notes": ""
+    },
+    {
+      "question": "35",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "36",
+      "answer": 4,
+      "notes": ""
+    },
+    {
+      "question": "37",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "38",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "39",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "40",
+      "answer": 4,
+      "notes": ""
+    },
+    {
+      "question": "41",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "42",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "43",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "44",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "45",
+      "answer": 4,
+      "notes": ""
+    },
+    {
+      "question": "46",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "47",
+      "answer": 4,
+      "notes": ""
+    },
+    {
+      "question": "48",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "49",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "50",
+      "answer": 4,
+      "notes": ""
+    },
+    {
+      "question": "51",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "52",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "53",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "54",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "55",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "56",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "57",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "58",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "59",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "60",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "61",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "62",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "63",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "64",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "65",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "66",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "67",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "68",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    }
+  ]
+}

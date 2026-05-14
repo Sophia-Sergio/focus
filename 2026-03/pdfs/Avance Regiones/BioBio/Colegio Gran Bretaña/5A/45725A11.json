@@ -1,0 +1,269 @@
+{
+  "metadata": {
+    "type": "TEST-B",
+    "student_name": "AREVALO, LAUTARO AGUILERA",
+    "student_run": "26079537-8",
+    "valid_rut": false,
+    "student_age": 10,
+    "student_gender": 1,
+    "date": "17-04-2026",
+    "survey_id": "45725A11",
+    "grade_range": "4° - 5°",
+    "extraction_date": "2026-05-11",
+    "total_questions": 50,
+    "school_name": "Colegio Gran Bretaña",
+    "grade_folder": "5A"
+  },
+  "responses": [
+    {
+      "question": "1",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "2",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "3",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "4",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "5",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "6",
+      "answer": 1,
+      "notes": ""
+    },
+    {
+      "question": "7",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "8",
+      "answer": 2,
+      "notes": ""
+    },
+    {
+      "question": "9",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "10",
+      "answer": 1,
+      "notes": ""
+    },
+    {
+      "question": "11",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "12",
+      "answer": 4,
+      "notes": ""
+    },
+    {
+      "question": "13",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "14",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "15",
+      "answer": 4,
+      "notes": ""
+    },
+    {
+      "question": "16",
+      "answer": 4,
+      "notes": ""
+    },
+    {
+      "question": "17",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "18",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "19",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "20",
+      "answer": 4,
+      "notes": ""
+    },
+    {
+      "question": "21",
+      "answer": 4,
+      "notes": ""
+    },
+    {
+      "question": "22",
+      "answer": 4,
+      "notes": ""
+    },
+    {
+      "question": "23",
+      "answer": 4,
+      "notes": ""
+    },
+    {
+      "question": "24",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "25",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "26",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "27",
+      "answer": 2,
+      "notes": ""
+    },
+    {
+      "question": "28",
+      "answer": 2,
+      "notes": ""
+    },
+    {
+      "question": "29",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "30",
+      "answer": 2,
+      "notes": ""
+    },
+    {
+      "question": "31",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "32",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "33",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "34",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "35",
+      "answer": 2,
+      "notes": ""
+    },
+    {
+      "question": "36",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "37",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "38",
+      "answer": 2,
+      "notes": ""
+    },
+    {
+      "question": "39",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "40",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "41",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "42",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "43",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "44",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "45",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "46",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "47",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "48",
+      "answer": 2,
+      "notes": ""
+    },
+    {
+      "question": "49",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "50",
+      "answer": 3,
+      "notes": ""
+    }
+  ]
+}

@@ -1,0 +1,269 @@
+{
+  "metadata": {
+    "type": "A",
+    "student_name": "ALARCÓN SIELFRLL, RAFAELA FERNANDA",
+    "student_run": "25664601-K",
+    "valid_rut": false,
+    "student_age": null,
+    "student_gender": 2,
+    "date": "15-04-2026",
+    "survey_id": "46114A18",
+    "grade_range": "4° - 5°",
+    "extraction_date": "2026-05-12",
+    "total_questions": 50,
+    "school_name": "ESCUELA BASICA LUIS ALBERTO ACEVEDO",
+    "grade_folder": "4A"
+  },
+  "responses": [
+    {
+      "question": "1",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "2",
+      "answer": 4,
+      "notes": ""
+    },
+    {
+      "question": "3",
+      "answer": 4,
+      "notes": ""
+    },
+    {
+      "question": "4",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "5",
+      "answer": 4,
+      "notes": ""
+    },
+    {
+      "question": "6",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "7",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "8",
+      "answer": 2,
+      "notes": ""
+    },
+    {
+      "question": "9",
+      "answer": 2,
+      "notes": ""
+    },
+    {
+      "question": "10",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "11",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "12",
+      "answer": 2,
+      "notes": ""
+    },
+    {
+      "question": "13",
+      "answer": 2,
+      "notes": ""
+    },
+    {
+      "question": "14",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "15",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "16",
+      "answer": 4,
+      "notes": ""
+    },
+    {
+      "question": "17",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "18",
+      "answer": 2,
+      "notes": ""
+    },
+    {
+      "question": "19",
+      "answer": 2,
+      "notes": ""
+    },
+    {
+      "question": "20",
+      "answer": 4,
+      "notes": ""
+    },
+    {
+      "question": "21",
+      "answer": 4,
+      "notes": ""
+    },
+    {
+      "question": "22",
+      "answer": 2,
+      "notes": ""
+    },
+    {
+      "question": "23",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "24",
+      "answer": 2,
+      "notes": ""
+    },
+    {
+      "question": "25",
+      "answer": 4,
+      "notes": ""
+    },
+    {
+      "question": "26",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "27",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "28",
+      "answer": 2,
+      "notes": ""
+    },
+    {
+      "question": "29",
+      "answer": 4,
+      "notes": ""
+    },
+    {
+      "question": "30",
+      "answer": 4,
+      "notes": ""
+    },
+    {
+      "question": "31",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "32",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "33",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "34",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "35",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "36",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "37",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "38",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "39",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "40",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "41",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "42",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "43",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "44",
+      "answer": 4,
+      "notes": ""
+    },
+    {
+      "question": "45",
+      "answer": 4,
+      "notes": ""
+    },
+    {
+      "question": "46",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "47",
+      "answer": 4,
+      "notes": ""
+    },
+    {
+      "question": "48",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "49",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "50",
+      "answer": 4,
+      "notes": ""
+    }
+  ]
+}

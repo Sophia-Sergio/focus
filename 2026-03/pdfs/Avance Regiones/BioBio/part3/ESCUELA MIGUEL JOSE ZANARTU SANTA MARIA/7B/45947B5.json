@@ -1,0 +1,359 @@
+{
+  "metadata": {
+    "type": "TEST-B",
+    "student_name": "VERGARA, VICENTA FERRER",
+    "student_run": "--------",
+    "valid_rut": false,
+    "student_age": 13,
+    "student_gender": 1,
+    "date": "26-03-2026",
+    "survey_id": "45947B5",
+    "grade_range": "6° - 7°",
+    "extraction_date": "2026-05-11",
+    "total_questions": 68,
+    "school_name": "ESCUELA MIGUEL JOSE ZANARTU SANTA MARIA",
+    "grade_folder": "7B"
+  },
+  "responses": [
+    {
+      "question": "1",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "2",
+      "answer": 1,
+      "notes": ""
+    },
+    {
+      "question": "3",
+      "answer": 1,
+      "notes": ""
+    },
+    {
+      "question": "4",
+      "answer": 2,
+      "notes": ""
+    },
+    {
+      "question": "5",
+      "answer": 1,
+      "notes": ""
+    },
+    {
+      "question": "6",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "7",
+      "answer": 1,
+      "notes": ""
+    },
+    {
+      "question": "8",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "9",
+      "answer": 2,
+      "notes": ""
+    },
+    {
+      "question": "10",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "11",
+      "answer": 1,
+      "notes": ""
+    },
+    {
+      "question": "12",
+      "answer": null,
+      "notes": "Inválido: Múltiples respuestas detectadas - marca en columna 2 y 3"
+    },
+    {
+      "question": "13",
+      "answer": null,
+      "notes": "Inválido: Múltiples respuestas detectadas - marca en columna 3 y 4"
+    },
+    {
+      "question": "14",
+      "answer": 1,
+      "notes": ""
+    },
+    {
+      "question": "15",
+      "answer": null,
+      "notes": "Inválido: Múltiples respuestas detectadas - marca en columna 2 y 4"
+    },
+    {
+      "question": "16",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "17",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "18",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "19",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "20",
+      "answer": 4,
+      "notes": ""
+    },
+    {
+      "question": "21",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "22",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "23",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "24",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "25",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "26",
+      "answer": 1,
+      "notes": ""
+    },
+    {
+      "question": "27",
+      "answer": 2,
+      "notes": ""
+    },
+    {
+      "question": "28",
+      "answer": 1,
+      "notes": ""
+    },
+    {
+      "question": "29",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "30",
+      "answer": 2,
+      "notes": ""
+    },
+    {
+      "question": "31",
+      "answer": 1,
+      "notes": ""
+    },
+    {
+      "question": "32",
+      "answer": 2,
+      "notes": ""
+    },
+    {
+      "question": "33",
+      "answer": 1,
+      "notes": ""
+    },
+    {
+      "question": "34",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "35",
+      "answer": 2,
+      "notes": ""
+    },
+    {
+      "question": "36",
+      "answer": 1,
+      "notes": ""
+    },
+    {
+      "question": "37",
+      "answer": 2,
+      "notes": ""
+    },
+    {
+      "question": "38",
+      "answer": 1,
+      "notes": ""
+    },
+    {
+      "question": "39",
+      "answer": 2,
+      "notes": ""
+    },
+    {
+      "question": "40",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "41",
+      "answer": 4,
+      "notes": ""
+    },
+    {
+      "question": "42",
+      "answer": 1,
+      "notes": ""
+    },
+    {
+      "question": "43",
+      "answer": 2,
+      "notes": ""
+    },
+    {
+      "question": "44",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "45",
+      "answer": 4,
+      "notes": ""
+    },
+    {
+      "question": "46",
+      "answer": 2,
+      "notes": ""
+    },
+    {
+      "question": "47",
+      "answer": 4,
+      "notes": ""
+    },
+    {
+      "question": "48",
+      "answer": null,
+      "notes": "Inválido: Múltiples respuestas detectadas - marca en columna 2 y 3"
+    },
+    {
+      "question": "49",
+      "answer": 1,
+      "notes": ""
+    },
+    {
+      "question": "50",
+      "answer": 2,
+      "notes": ""
+    },
+    {
+      "question": "51",
+      "answer": null,
+      "notes": "Inválido: Múltiples respuestas detectadas - marca en columna 1 y 4"
+    },
+    {
+      "question": "52",
+      "answer": 2,
+      "notes": ""
+    },
+    {
+      "question": "53",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "54",
+      "answer": null,
+      "notes": "Inválido: Múltiples respuestas detectadas - marca en columna 1 y 3"
+    },
+    {
+      "question": "55",
+      "answer": 4,
+      "notes": ""
+    },
+    {
+      "question": "56",
+      "answer": 1,
+      "notes": ""
+    },
+    {
+      "question": "57",
+      "answer": 2,
+      "notes": ""
+    },
+    {
+      "question": "58",
+      "answer": 4,
+      "notes": ""
+    },
+    {
+      "question": "59",
+      "answer": null,
+      "notes": "Inválido: Múltiples respuestas detectadas - marca en columna 1 y 3"
+    },
+    {
+      "question": "60",
+      "answer": 2,
+      "notes": ""
+    },
+    {
+      "question": "61",
+      "answer": null,
+      "notes": "Inválido: Múltiples respuestas detectadas - marca en columna 1 y 4"
+    },
+    {
+      "question": "62",
+      "answer": null,
+      "notes": "Inválido: Múltiples respuestas detectadas - marca en columna 2 y 3"
+    },
+    {
+      "question": "63",
+      "answer": null,
+      "notes": "Inválido: Múltiples respuestas detectadas - marca en columna 2 y 4"
+    },
+    {
+      "question": "64",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "65",
+      "answer": null,
+      "notes": "Inválido: Múltiples respuestas detectadas - marca en columna 1, 2 y 4"
+    },
+    {
+      "question": "66",
+      "answer": null,
+      "notes": "Inválido: Múltiples respuestas detectadas - marca en columna 1 y 4"
+    },
+    {
+      "question": "67",
+      "answer": null,
+      "notes": "Inválido: Múltiples respuestas detectadas - marca en columna 2 y 3"
+    },
+    {
+      "question": "68",
+      "answer": null,
+      "notes": "Inválido: Múltiples respuestas detectadas - marca en columna 1, 2, 3 y 4"
+    }
+  ]
+}

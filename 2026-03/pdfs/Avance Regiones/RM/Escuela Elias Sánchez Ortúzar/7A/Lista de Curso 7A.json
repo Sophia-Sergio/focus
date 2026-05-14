@@ -1,0 +1,359 @@
+{
+  "metadata": {
+    "type": "Lista",
+    "student_name": "Escuela Elías Sánchez",
+    "student_run": null,
+    "valid_rut": false,
+    "student_age": null,
+    "student_gender": null,
+    "date": null,
+    "survey_id": "Lista de Curso 7A",
+    "grade_range": "6° - 7°",
+    "extraction_date": "2026-05-12",
+    "total_questions": 68,
+    "school_name": "Escuela Elias Sánchez Ortúzar",
+    "grade_folder": "7A"
+  },
+  "responses": [
+    {
+      "question": "1",
+      "answer": null,
+      "notes": "Documento no contiene encuesta - es una lista de curso"
+    },
+    {
+      "question": "2",
+      "answer": null,
+      "notes": "Documento no contiene encuesta - es una lista de curso"
+    },
+    {
+      "question": "3",
+      "answer": null,
+      "notes": "Documento no contiene encuesta - es una lista de curso"
+    },
+    {
+      "question": "4",
+      "answer": null,
+      "notes": "Documento no contiene encuesta - es una lista de curso"
+    },
+    {
+      "question": "5",
+      "answer": null,
+      "notes": "Documento no contiene encuesta - es una lista de curso"
+    },
+    {
+      "question": "6",
+      "answer": null,
+      "notes": "Documento no contiene encuesta - es una lista de curso"
+    },
+    {
+      "question": "7",
+      "answer": null,
+      "notes": "Documento no contiene encuesta - es una lista de curso"
+    },
+    {
+      "question": "8",
+      "answer": null,
+      "notes": "Documento no contiene encuesta - es una lista de curso"
+    },
+    {
+      "question": "9",
+      "answer": null,
+      "notes": "Documento no contiene encuesta - es una lista de curso"
+    },
+    {
+      "question": "10",
+      "answer": null,
+      "notes": "Documento no contiene encuesta - es una lista de curso"
+    },
+    {
+      "question": "11",
+      "answer": null,
+      "notes": "Documento no contiene encuesta - es una lista de curso"
+    },
+    {
+      "question": "12",
+      "answer": null,
+      "notes": "Documento no contiene encuesta - es una lista de curso"
+    },
+    {
+      "question": "13",
+      "answer": null,
+      "notes": "Documento no contiene encuesta - es una lista de curso"
+    },
+    {
+      "question": "14",
+      "answer": null,
+      "notes": "Documento no contiene encuesta - es una lista de curso"
+    },
+    {
+      "question": "15",
+      "answer": null,
+      "notes": "Documento no contiene encuesta - es una lista de curso"
+    },
+    {
+      "question": "16",
+      "answer": null,
+      "notes": "Documento no contiene encuesta - es una lista de curso"
+    },
+    {
+      "question": "17",
+      "answer": null,
+      "notes": "Documento no contiene encuesta - es una lista de curso"
+    },
+    {
+      "question": "18",
+      "answer": null,
+      "notes": "Documento no contiene encuesta - es una lista de curso"
+    },
+    {
+      "question": "19",
+      "answer": null,
+      "notes": "Documento no contiene encuesta - es una lista de curso"
+    },
+    {
+      "question": "20",
+      "answer": null,
+      "notes": "Documento no contiene encuesta - es una lista de curso"
+    },
+    {
+      "question": "21",
+      "answer": null,
+      "notes": "Documento no contiene encuesta - es una lista de curso"
+    },
+    {
+      "question": "22",
+      "answer": null,
+      "notes": "Documento no contiene encuesta - es una lista de curso"
+    },
+    {
+      "question": "23",
+      "answer": null,
+      "notes": "Documento no contiene encuesta - es una lista de curso"
+    },
+    {
+      "question": "24",
+      "answer": null,
+      "notes": "Documento no contiene encuesta - es una lista de curso"
+    },
+    {
+      "question": "25",
+      "answer": null,
+      "notes": "Documento no contiene encuesta - es una lista de curso"
+    },
+    {
+      "question": "26",
+      "answer": null,
+      "notes": "Documento no contiene encuesta - es una lista de curso"
+    },
+    {
+      "question": "27",
+      "answer": null,
+      "notes": "Documento no contiene encuesta - es una lista de curso"
+    },
+    {
+      "question": "28",
+      "answer": null,
+      "notes": "Documento no contiene encuesta - es una lista de curso"
+    },
+    {
+      "question": "29",
+      "answer": null,
+      "notes": "Documento no contiene encuesta - es una lista de curso"
+    },
+    {
+      "question": "30",
+      "answer": null,
+      "notes": "Documento no contiene encuesta - es una lista de curso"
+    },
+    {
+      "question": "31",
+      "answer": null,
+      "notes": "Documento no contiene encuesta - es una lista de curso"
+    },
+    {
+      "question": "32",
+      "answer": null,
+      "notes": "Documento no contiene encuesta - es una lista de curso"
+    },
+    {
+      "question": "33",
+      "answer": null,
+      "notes": "Documento no contiene encuesta - es una lista de curso"
+    },
+    {
+      "question": "34",
+      "answer": null,
+      "notes": "Documento no contiene encuesta - es una lista de curso"
+    },
+    {
+      "question": "35",
+      "answer": null,
+      "notes": "Documento no contiene encuesta - es una lista de curso"
+    },
+    {
+      "question": "36",
+      "answer": null,
+      "notes": "Documento no contiene encuesta - es una lista de curso"
+    },
+    {
+      "question": "37",
+      "answer": null,
+      "notes": "Documento no contiene encuesta - es una lista de curso"
+    },
+    {
+      "question": "38",
+      "answer": null,
+      "notes": "Documento no contiene encuesta - es una lista de curso"
+    },
+    {
+      "question": "39",
+      "answer": null,
+      "notes": "Documento no contiene encuesta - es una lista de curso"
+    },
+    {
+      "question": "40",
+      "answer": null,
+      "notes": "Documento no contiene encuesta - es una lista de curso"
+    },
+    {
+      "question": "41",
+      "answer": null,
+      "notes": "Documento no contiene encuesta - es una lista de curso"
+    },
+    {
+      "question": "42",
+      "answer": null,
+      "notes": "Documento no contiene encuesta - es una lista de curso"
+    },
+    {
+      "question": "43",
+      "answer": null,
+      "notes": "Documento no contiene encuesta - es una lista de curso"
+    },
+    {
+      "question": "44",
+      "answer": null,
+      "notes": "Documento no contiene encuesta - es una lista de curso"
+    },
+    {
+      "question": "45",
+      "answer": null,
+      "notes": "Documento no contiene encuesta - es una lista de curso"
+    },
+    {
+      "question": "46",
+      "answer": null,
+      "notes": "Documento no contiene encuesta - es una lista de curso"
+    },
+    {
+      "question": "47",
+      "answer": null,
+      "notes": "Documento no contiene encuesta - es una lista de curso"
+    },
+    {
+      "question": "48",
+      "answer": null,
+      "notes": "Documento no contiene encuesta - es una lista de curso"
+    },
+    {
+      "question": "49",
+      "answer": null,
+      "notes": "Documento no contiene encuesta - es una lista de curso"
+    },
+    {
+      "question": "50",
+      "answer": null,
+      "notes": "Documento no contiene encuesta - es una lista de curso"
+    },
+    {
+      "question": "51",
+      "answer": null,
+      "notes": "Documento no contiene encuesta - es una lista de curso"
+    },
+    {
+      "question": "52",
+      "answer": null,
+      "notes": "Documento no contiene encuesta - es una lista de curso"
+    },
+    {
+      "question": "53",
+      "answer": null,
+      "notes": "Documento no contiene encuesta - es una lista de curso"
+    },
+    {
+      "question": "54",
+      "answer": null,
+      "notes": "Documento no contiene encuesta - es una lista de curso"
+    },
+    {
+      "question": "55",
+      "answer": null,
+      "notes": "Documento no contiene encuesta - es una lista de curso"
+    },
+    {
+      "question": "56",
+      "answer": null,
+      "notes": "Documento no contiene encuesta - es una lista de curso"
+    },
+    {
+      "question": "57",
+      "answer": null,
+      "notes": "Documento no contiene encuesta - es una lista de curso"
+    },
+    {
+      "question": "58",
+      "answer": null,
+      "notes": "Documento no contiene encuesta - es una lista de curso"
+    },
+    {
+      "question": "59",
+      "answer": null,
+      "notes": "Documento no contiene encuesta - es una lista de curso"
+    },
+    {
+      "question": "60",
+      "answer": null,
+      "notes": "Documento no contiene encuesta - es una lista de curso"
+    },
+    {
+      "question": "61",
+      "answer": null,
+      "notes": "Documento no contiene encuesta - es una lista de curso"
+    },
+    {
+      "question": "62",
+      "answer": null,
+      "notes": "Documento no contiene encuesta - es una lista de curso"
+    },
+    {
+      "question": "63",
+      "answer": null,
+      "notes": "Documento no contiene encuesta - es una lista de curso"
+    },
+    {
+      "question": "64",
+      "answer": null,
+      "notes": "Documento no contiene encuesta - es una lista de curso"
+    },
+    {
+      "question": "65",
+      "answer": null,
+      "notes": "Documento no contiene encuesta - es una lista de curso"
+    },
+    {
+      "question": "66",
+      "answer": null,
+      "notes": "Documento no contiene encuesta - es una lista de curso"
+    },
+    {
+      "question": "67",
+      "answer": null,
+      "notes": "Documento no contiene encuesta - es una lista de curso"
+    },
+    {
+      "question": "68",
+      "answer": null,
+      "notes": "Documento no contiene encuesta - es una lista de curso"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "metadata": {
+    "type": "Lista",
+    "student_name": "No aplicable - Lista de curso",
+    "student_run": "No aplicable",
+    "valid_rut": false,
+    "student_age": null,
+    "student_gender": null,
+    "date": "No aplicable",
+    "survey_id": "Lista de Curso 6A",
+    "grade_range": "6° - 7°",
+    "extraction_date": "2026-05-12",
+    "total_questions": 68,
+    "school_name": "COLEGIO HUILCO ALTO",
+    "grade_folder": "6A"
+  },
+  "responses": [
+    {
+      "question": "1",
+      "answer": null,
+      "notes": "Este documento es una lista de curso del establecimiento 10784 COLEGIO HUILCO ALTO, no una encuesta individual de estudiante"
+    }
+  ]
+}

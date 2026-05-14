@@ -1,0 +1,359 @@
+{
+  "metadata": {
+    "type": "A",
+    "student_name": "Alvarez Barra, Guatone del Blanco",
+    "student_run": "27089594-0",
+    "valid_rut": false,
+    "student_age": null,
+    "student_gender": 1,
+    "date": "01-04-2026",
+    "survey_id": "46176A2",
+    "grade_range": "6° - 7°",
+    "extraction_date": "2026-05-11",
+    "total_questions": 68,
+    "school_name": "Colegio Galvarino De Lomas Coloradas",
+    "grade_folder": "6A"
+  },
+  "responses": [
+    {
+      "question": "1",
+      "answer": 2,
+      "notes": ""
+    },
+    {
+      "question": "2",
+      "answer": 1,
+      "notes": ""
+    },
+    {
+      "question": "3",
+      "answer": 2,
+      "notes": ""
+    },
+    {
+      "question": "4",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "5",
+      "answer": 2,
+      "notes": ""
+    },
+    {
+      "question": "6",
+      "answer": 4,
+      "notes": ""
+    },
+    {
+      "question": "7",
+      "answer": 2,
+      "notes": ""
+    },
+    {
+      "question": "8",
+      "answer": 2,
+      "notes": ""
+    },
+    {
+      "question": "9",
+      "answer": 1,
+      "notes": ""
+    },
+    {
+      "question": "10",
+      "answer": 2,
+      "notes": ""
+    },
+    {
+      "question": "11",
+      "answer": 2,
+      "notes": ""
+    },
+    {
+      "question": "12",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "13",
+      "answer": 4,
+      "notes": ""
+    },
+    {
+      "question": "14",
+      "answer": 4,
+      "notes": ""
+    },
+    {
+      "question": "15",
+      "answer": 1,
+      "notes": ""
+    },
+    {
+      "question": "16",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "17",
+      "answer": 1,
+      "notes": ""
+    },
+    {
+      "question": "18",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "19",
+      "answer": 4,
+      "notes": ""
+    },
+    {
+      "question": "20",
+      "answer": 4,
+      "notes": ""
+    },
+    {
+      "question": "21",
+      "answer": 4,
+      "notes": ""
+    },
+    {
+      "question": "22",
+      "answer": 2,
+      "notes": ""
+    },
+    {
+      "question": "23",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "24",
+      "answer": 2,
+      "notes": ""
+    },
+    {
+      "question": "25",
+      "answer": 1,
+      "notes": ""
+    },
+    {
+      "question": "26",
+      "answer": 4,
+      "notes": ""
+    },
+    {
+      "question": "27",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "28",
+      "answer": 4,
+      "notes": ""
+    },
+    {
+      "question": "29",
+      "answer": 1,
+      "notes": ""
+    },
+    {
+      "question": "30",
+      "answer": 2,
+      "notes": ""
+    },
+    {
+      "question": "31",
+      "answer": 4,
+      "notes": ""
+    },
+    {
+      "question": "32",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "33",
+      "answer": 4,
+      "notes": ""
+    },
+    {
+      "question": "34",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "35",
+      "answer": 2,
+      "notes": ""
+    },
+    {
+      "question": "36",
+      "answer": 4,
+      "notes": ""
+    },
+    {
+      "question": "37",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "38",
+      "answer": 2,
+      "notes": ""
+    },
+    {
+      "question": "39",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "40",
+      "answer": 2,
+      "notes": ""
+    },
+    {
+      "question": "41",
+      "answer": 4,
+      "notes": ""
+    },
+    {
+      "question": "42",
+      "answer": 2,
+      "notes": ""
+    },
+    {
+      "question": "43",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "44",
+      "answer": 2,
+      "notes": ""
+    },
+    {
+      "question": "45",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "46",
+      "answer": 2,
+      "notes": ""
+    },
+    {
+      "question": "47",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "48",
+      "answer": 2,
+      "notes": ""
+    },
+    {
+      "question": "49",
+      "answer": 1,
+      "notes": ""
+    },
+    {
+      "question": "50",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "51",
+      "answer": 2,
+      "notes": ""
+    },
+    {
+      "question": "52",
+      "answer": 2,
+      "notes": ""
+    },
+    {
+      "question": "53",
+      "answer": 2,
+      "notes": ""
+    },
+    {
+      "question": "54",
+      "answer": 2,
+      "notes": ""
+    },
+    {
+      "question": "55",
+      "answer": 4,
+      "notes": ""
+    },
+    {
+      "question": "56",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "57",
+      "answer": 2,
+      "notes": ""
+    },
+    {
+      "question": "58",
+      "answer": 1,
+      "notes": ""
+    },
+    {
+      "question": "59",
+      "answer": 2,
+      "notes": ""
+    },
+    {
+      "question": "60",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "61",
+      "answer": 2,
+      "notes": ""
+    },
+    {
+      "question": "62",
+      "answer": 2,
+      "notes": ""
+    },
+    {
+      "question": "63",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "64",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "65",
+      "answer": 1,
+      "notes": ""
+    },
+    {
+      "question": "66",
+      "answer": 1,
+      "notes": ""
+    },
+    {
+      "question": "67",
+      "answer": 1,
+      "notes": ""
+    },
+    {
+      "question": "68",
+      "answer": 3,
+      "notes": ""
+    }
+  ]
+}

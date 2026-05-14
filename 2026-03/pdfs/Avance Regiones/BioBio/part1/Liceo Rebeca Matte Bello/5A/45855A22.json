@@ -1,0 +1,269 @@
+{
+  "metadata": {
+    "type": "A",
+    "student_name": "OJEDA GRANADA, EVALUNA",
+    "student_run": "28930913-0",
+    "valid_rut": false,
+    "student_age": 11,
+    "student_gender": 2,
+    "date": "16-03-2026",
+    "survey_id": "45855A22",
+    "grade_range": "4° - 5°",
+    "extraction_date": "2026-05-11",
+    "total_questions": 50,
+    "school_name": "Liceo Rebeca Matte Bello",
+    "grade_folder": "5A"
+  },
+  "responses": [
+    {
+      "question": "1",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "2",
+      "answer": 1,
+      "notes": ""
+    },
+    {
+      "question": "3",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "4",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "5",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "6",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "7",
+      "answer": 4,
+      "notes": ""
+    },
+    {
+      "question": "8",
+      "answer": 2,
+      "notes": ""
+    },
+    {
+      "question": "9",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "10",
+      "answer": 4,
+      "notes": ""
+    },
+    {
+      "question": "11",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "12",
+      "answer": 2,
+      "notes": ""
+    },
+    {
+      "question": "13",
+      "answer": 4,
+      "notes": ""
+    },
+    {
+      "question": "14",
+      "answer": 4,
+      "notes": ""
+    },
+    {
+      "question": "15",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "16",
+      "answer": 4,
+      "notes": ""
+    },
+    {
+      "question": "17",
+      "answer": 4,
+      "notes": ""
+    },
+    {
+      "question": "18",
+      "answer": 4,
+      "notes": ""
+    },
+    {
+      "question": "19",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "20",
+      "answer": 4,
+      "notes": ""
+    },
+    {
+      "question": "21",
+      "answer": 4,
+      "notes": ""
+    },
+    {
+      "question": "22",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "23",
+      "answer": 4,
+      "notes": ""
+    },
+    {
+      "question": "24",
+      "answer": 4,
+      "notes": ""
+    },
+    {
+      "question": "25",
+      "answer": 4,
+      "notes": ""
+    },
+    {
+      "question": "26",
+      "answer": 2,
+      "notes": ""
+    },
+    {
+      "question": "27",
+      "answer": 4,
+      "notes": ""
+    },
+    {
+      "question": "28",
+      "answer": 4,
+      "notes": ""
+    },
+    {
+      "question": "29",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "30",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "31",
+      "answer": 4,
+      "notes": ""
+    },
+    {
+      "question": "32",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "33",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "34",
+      "answer": 4,
+      "notes": ""
+    },
+    {
+      "question": "35",
+      "answer": 4,
+      "notes": ""
+    },
+    {
+      "question": "36",
+      "answer": 4,
+      "notes": ""
+    },
+    {
+      "question": "37",
+      "answer": 1,
+      "notes": ""
+    },
+    {
+      "question": "38",
+      "answer": 1,
+      "notes": ""
+    },
+    {
+      "question": "39",
+      "answer": 1,
+      "notes": ""
+    },
+    {
+      "question": "40",
+      "answer": 4,
+      "notes": ""
+    },
+    {
+      "question": "41",
+      "answer": 1,
+      "notes": ""
+    },
+    {
+      "question": "42",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "43",
+      "answer": 4,
+      "notes": ""
+    },
+    {
+      "question": "44",
+      "answer": 4,
+      "notes": ""
+    },
+    {
+      "question": "45",
+      "answer": 4,
+      "notes": ""
+    },
+    {
+      "question": "46",
+      "answer": 4,
+      "notes": ""
+    },
+    {
+      "question": "47",
+      "answer": 4,
+      "notes": ""
+    },
+    {
+      "question": "48",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "49",
+      "answer": 4,
+      "notes": ""
+    },
+    {
+      "question": "50",
+      "answer": 4,
+      "notes": ""
+    }
+  ]
+}

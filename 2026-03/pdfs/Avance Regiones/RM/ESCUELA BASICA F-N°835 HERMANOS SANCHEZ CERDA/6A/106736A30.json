@@ -1,0 +1,359 @@
+{
+  "metadata": {
+    "type": "A",
+    "student_name": "Hernandez Flores, Trini Rioloool Inguencia",
+    "student_run": "24976190-7",
+    "valid_rut": true,
+    "student_age": 11,
+    "student_gender": 2,
+    "date": "25-03-2026",
+    "survey_id": "106736A30",
+    "grade_range": "6° - 7°",
+    "extraction_date": "2026-05-10",
+    "total_questions": 68,
+    "school_name": "ESCUELA BASICA F-N°835 HERMANOS SANCHEZ CERDA",
+    "grade_folder": "6A"
+  },
+  "responses": [
+    {
+      "question": "1",
+      "answer": 2,
+      "notes": ""
+    },
+    {
+      "question": "2",
+      "answer": 1,
+      "notes": ""
+    },
+    {
+      "question": "3",
+      "answer": 2,
+      "notes": ""
+    },
+    {
+      "question": "4",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "5",
+      "answer": 1,
+      "notes": ""
+    },
+    {
+      "question": "6",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "7",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "8",
+      "answer": 4,
+      "notes": ""
+    },
+    {
+      "question": "9",
+      "answer": 2,
+      "notes": ""
+    },
+    {
+      "question": "10",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "11",
+      "answer": 2,
+      "notes": ""
+    },
+    {
+      "question": "12",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "13",
+      "answer": 4,
+      "notes": ""
+    },
+    {
+      "question": "14",
+      "answer": 2,
+      "notes": ""
+    },
+    {
+      "question": "15",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "16",
+      "answer": 4,
+      "notes": ""
+    },
+    {
+      "question": "17",
+      "answer": 2,
+      "notes": ""
+    },
+    {
+      "question": "18",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "19",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "20",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "21",
+      "answer": 4,
+      "notes": ""
+    },
+    {
+      "question": "22",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "23",
+      "answer": 1,
+      "notes": ""
+    },
+    {
+      "question": "24",
+      "answer": 2,
+      "notes": ""
+    },
+    {
+      "question": "25",
+      "answer": 2,
+      "notes": ""
+    },
+    {
+      "question": "26",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "27",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "28",
+      "answer": 2,
+      "notes": ""
+    },
+    {
+      "question": "29",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "30",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "31",
+      "answer": 1,
+      "notes": ""
+    },
+    {
+      "question": "32",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "33",
+      "answer": 1,
+      "notes": ""
+    },
+    {
+      "question": "34",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "35",
+      "answer": 2,
+      "notes": ""
+    },
+    {
+      "question": "36",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "37",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "38",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "39",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "40",
+      "answer": 2,
+      "notes": ""
+    },
+    {
+      "question": "41",
+      "answer": 4,
+      "notes": ""
+    },
+    {
+      "question": "42",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "43",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "44",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "45",
+      "answer": 2,
+      "notes": ""
+    },
+    {
+      "question": "46",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "47",
+      "answer": 4,
+      "notes": ""
+    },
+    {
+      "question": "48",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "49",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "50",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "51",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "52",
+      "answer": null,
+      "notes": "Inválido: Múltiples respuestas detectadas - marca en columna 2 y 3"
+    },
+    {
+      "question": "53",
+      "answer": 2,
+      "notes": ""
+    },
+    {
+      "question": "54",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "55",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "56",
+      "answer": null,
+      "notes": "Sin respuesta visible"
+    },
+    {
+      "question": "57",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "58",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "59",
+      "answer": 2,
+      "notes": ""
+    },
+    {
+      "question": "60",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "61",
+      "answer": 4,
+      "notes": ""
+    },
+    {
+      "question": "62",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "63",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "64",
+      "answer": 1,
+      "notes": ""
+    },
+    {
+      "question": "65",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "66",
+      "answer": 2,
+      "notes": ""
+    },
+    {
+      "question": "67",
+      "answer": 3,
+      "notes": ""
+    },
+    {
+      "question": "68",
+      "answer": 3,
+      "notes": ""
+    }
+  ]
+}
