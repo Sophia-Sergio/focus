@@ -3,4 +3,7 @@ jsons/
 __pycache__/
 *.pyc
 .DS_Store
-2026-03/pfds/*.pdf
+2026-03/pdfs/*.pdf
+2026-03/test/*.pdf
+2026-03/test/*.csv
+scripts/.env

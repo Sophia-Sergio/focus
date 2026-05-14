@@ -32,7 +32,6 @@ def extract_survey_row(survey_data, max_questions):
     row = {
         'survey_id': metadata.get('survey_id', ''),
         'type': metadata.get('type', ''),
-        'subtype': metadata.get('subtype', ''),
         'grade_range': metadata.get('grade_range', ''),
         'student_name': metadata.get('student_name', ''),
         'student_run': metadata.get('student_run', ''),
@@ -124,7 +123,7 @@ def process_all_surveys(digitalizadas_path='digitalizadas'):
 
     # Define CSV headers
     metadata_headers = [
-        'survey_id', 'type', 'subtype', 'grade_range', 'student_name',
+        'survey_id', 'type', 'grade_range', 'student_name',
         'student_run', 'student_gender', 'school_name', 'grade', 'section',
         'date', 'total_questions', 'completion_status', 'school_folder',
         'grade_folder', 'section_folder'
@@ -147,7 +146,7 @@ def process_all_surveys(digitalizadas_path='digitalizadas'):
 
         print(f"\n✓ Created: {output_file}")
         print(f"  - {len(surveys_4_5)} surveys")
-        print(f"  - {len(all_headers)} columns (16 metadata + 50 questions)")
+        print(f"  - {len(all_headers)} columns (15 metadata + 50 questions)")
 
     # Create 6-7 consolidated CSV
     if surveys_6_7:
@@ -166,7 +165,7 @@ def process_all_surveys(digitalizadas_path='digitalizadas'):
 
         print(f"\n✓ Created: {output_file}")
         print(f"  - {len(surveys_6_7)} surveys")
-        print(f"  - {len(all_headers)} columns (16 metadata + 68 questions)")
+        print(f"  - {len(all_headers)} columns (15 metadata + 68 questions)")
 
 def main():
     import sys

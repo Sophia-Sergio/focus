@@ -2,6 +2,33 @@
 """
 Survey PDF Extraction Script
 Processes PDF survey files and extracts responses to JSON format.
+
+Usage examples:
+    # Process all pending PDFs in the default directory (./digitalizadas)
+    python3 extract_all_surveys.py
+
+    # Process all pending PDFs in a specific directory
+    python3 extract_all_surveys.py /path/to/digitalizadas
+
+    # Process a single PDF file
+    python3 extract_all_surveys.py /path/to/survey.pdf
+
+    # Test run — process only 3 files
+    python3 extract_all_surveys.py --test
+
+    # Reprocess files that already have JSON output
+    python3 extract_all_surveys.py --force
+
+    # Limit to first N files
+    python3 extract_all_surveys.py --max-files 10
+
+    # Set delay between API requests (default: 1.0s)
+    python3 extract_all_surveys.py --delay 2.0
+
+    # Pass API key explicitly (overrides .env)
+    python3 extract_all_surveys.py --api-key sk-ant-...
+
+API key is loaded automatically from scripts/.env (ANTHROPIC_API_KEY=...).
 """
 
 import os
@@ -36,6 +63,36 @@ except ImportError:
     print("Error: anthropic library not found. Installing...")
     os.system("pip3 install anthropic")
     import anthropic
+
+try:
+    from dotenv import load_dotenv
+except ImportError:
+    os.system("pip3 install python-dotenv")
+    from dotenv import load_dotenv
+
+# Load .env from scripts/ directory (one level up from this file)
+load_dotenv(Path(__file__).parent.parent / ".env")
+
+
+def validate_rut(rut: str) -> bool:
+    """Validate a Chilean RUT using the official modulo-11 algorithm."""
+    if not rut:
+        return False
+    clean = rut.replace(".", "").replace("-", "").upper().strip()
+    if len(clean) < 2:
+        return False
+    body, dv = clean[:-1], clean[-1]
+    if not body.isdigit():
+        return False
+    suma = 0
+    multiplo = 2
+    for digit in reversed(body):
+        suma += int(digit) * multiplo
+        multiplo = multiplo + 1 if multiplo < 7 else 2
+    remainder = suma % 11
+    result = 11 - remainder
+    expected = "0" if result == 11 else ("K" if result == 10 else str(result))
+    return dv == expected
 
 
 class SurveyExtractor:
@@ -102,13 +159,11 @@ class SurveyExtractor:
 
             # Parse folder name — folder is the single source of truth for grade/section
             folder_name = Path(pdf_path).parent.name
-            folder_match = re.match(r'^(.+?)\s+(\d°)([A-Z])$', folder_name)
+            folder_match = re.match(r'^(\d)([A-Z])$', folder_name)
             if folder_match:
-                school_folder = folder_match.group(1).strip()
-                grade_folder = folder_match.group(2)
-                section_folder = folder_match.group(3)
+                grade_folder = folder_match.group(1) + "°"
+                section_folder = folder_match.group(2)
             else:
-                school_folder = folder_name
                 grade_folder = None
                 section_folder = None
 
@@ -133,14 +188,9 @@ class SurveyExtractor:
             prompt = f"""## Task Context
 - survey_id: "{filename_without_ext}" — use this exact value, do NOT read it from the PDF
 - grade_range: "{grade_range}" — use this exact value, do NOT read it from the PDF
-- grade: "{grade_folder}" — use this exact value, do NOT read it from the PDF
-- section: "{section_folder}" — use this exact value, do NOT read it from the PDF
 - total_questions: {total_questions}
 - Scale 1 (Certainty) applies to questions 1–{scale_1_end}
 - Scale 2 (Frequency) applies to questions {scale_2_start}–{total_questions}
-- school_folder: "{school_folder}"
-- grade_folder: "{grade_folder}"
-- section_folder: "{section_folder}"
 - extraction_date: "{datetime.now().strftime('%Y-%m-%d')}"
 
 {extraction_rules}"""
@@ -166,6 +216,24 @@ class SurveyExtractor:
                     if json_match:
                         json_str = json_match.group(0)
                         survey_data = json.loads(json_str)
+                        meta = survey_data.get("metadata", {})
+                        # Inject context fields Python already knows
+                        meta["survey_id"] = filename_without_ext
+                        meta["grade_range"] = grade_range
+                        meta["extraction_date"] = datetime.now().strftime("%Y-%m-%d")
+                        meta["total_questions"] = total_questions
+                        meta["school_name"] = Path(pdf_path).parent.parent.name
+                        meta["grade_folder"] = Path(pdf_path).parent.name
+                        # Inject valid_rut right after student_run
+                        if "student_run" in meta:
+                            new_meta = {}
+                            for k, v in meta.items():
+                                new_meta[k] = v
+                                if k == "student_run":
+                                    new_meta["valid_rut"] = validate_rut(str(v))
+                            survey_data["metadata"] = new_meta
+                        else:
+                            survey_data["metadata"] = meta
                         return survey_data
                     else:
                         print(f"No JSON found in response for {pdf_path}")
@@ -211,12 +279,12 @@ class SurveyExtractor:
 
 
 def find_pending_pdfs(base_dir: str, force: bool = False) -> List[Tuple[str, str]]:
-    """Find all PDFs that don't have a corresponding _2d_attemp.json (unless force=True)."""
+    """Find all PDFs that don't have a corresponding .json (unless force=True)."""
     base_path = Path(base_dir)
     pending = []
 
     for pdf_file in base_path.rglob("*.pdf"):
-        json_file = pdf_file.parent / f"{pdf_file.stem}_2d_attemp.json"
+        json_file = pdf_file.parent / f"{pdf_file.stem}.json"
         if force or not json_file.exists():
             pending.append((str(pdf_file), str(json_file)))
 
@@ -272,7 +340,7 @@ def process_single_survey(pdf_path: str, api_key: Optional[str] = None, force: b
         print(f"Error: File not found: {pdf_path}")
         sys.exit(1)
 
-    json_path = pdf.parent / f"{pdf.stem}_2d_attemp.json"
+    json_path = pdf.parent / f"{pdf.stem}.json"
 
     if not force and json_path.exists():
         print(f"Already processed: {json_path.name}  (use --force to reprocess)")
