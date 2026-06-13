@@ -23,18 +23,41 @@ def load_survey_json(json_path):
     with open(json_path, 'r', encoding='utf-8') as f:
         return json.load(f)
 
+def _compute_valid_age(age, grade_range):
+    if age is None or age == '':
+        return False
+    try:
+        age = int(age)
+    except (ValueError, TypeError):
+        return False
+    gr = grade_range.replace(' ', '')
+    if '4°-5°' in gr or '4-5' in gr:
+        return 8 <= age <= 11
+    if '6°-7°' in gr or '6-7' in gr:
+        return 11 <= age <= 14
+    return ''
+
 def extract_survey_row(survey_data, max_questions):
     """Extract a single row of data from a survey JSON"""
     metadata = survey_data['metadata']
     responses = survey_data['responses']
 
     # Build the row with metadata
+    raw_name = metadata.get('student_name') or ''
+    name_parts = raw_name.split(',', 1)
+    student_lastname = name_parts[0].strip()
+    student_firstname = name_parts[1].strip() if len(name_parts) > 1 else ''
+
     row = {
         'survey_id': metadata.get('survey_id', ''),
         'type': metadata.get('type', ''),
         'grade_range': metadata.get('grade_range', ''),
-        'student_name': metadata.get('student_name', ''),
+        'student_name': raw_name,
+        'student_lastname': student_lastname,
+        'student_firstname': student_firstname,
         'student_run': metadata.get('student_run', ''),
+        'student_age': metadata.get('student_age', ''),
+        'valid_age': _compute_valid_age(metadata.get('student_age'), metadata.get('grade_range', '')),
         'student_gender': metadata.get('student_gender', ''),
         'school_name': metadata.get('school_name', ''),
         'grade': metadata.get('grade', ''),
@@ -44,7 +67,8 @@ def extract_survey_row(survey_data, max_questions):
         'completion_status': metadata.get('completion_status', ''),
         'school_folder': metadata.get('school_folder', ''),
         'grade_folder': metadata.get('grade_folder', ''),
-        'section_folder': metadata.get('section_folder', '')
+        'section_folder': metadata.get('section_folder', ''),
+        'valid_rut': metadata.get('valid_rut', '')
     }
 
     # Add answer columns (q1, q2, q3, ...)
@@ -123,8 +147,8 @@ def process_all_surveys(digitalizadas_path='digitalizadas'):
 
     # Define CSV headers
     metadata_headers = [
-        'survey_id', 'type', 'grade_range', 'student_name',
-        'student_run', 'student_gender', 'school_name', 'grade', 'section',
+        'survey_id', 'type', 'grade_range', 'student_name', 'student_lastname', 'student_firstname',
+        'student_run', 'valid_rut', 'student_age', 'valid_age', 'student_gender', 'school_name', 'grade', 'section',
         'date', 'total_questions', 'completion_status', 'school_folder',
         'grade_folder', 'section_folder'
     ]
@@ -146,7 +170,7 @@ def process_all_surveys(digitalizadas_path='digitalizadas'):
 
         print(f"\n✓ Created: {output_file}")
         print(f"  - {len(surveys_4_5)} surveys")
-        print(f"  - {len(all_headers)} columns (15 metadata + 50 questions)")
+        print(f"  - {len(all_headers)} columns (20 metadata + 50 questions)")
 
     # Create 6-7 consolidated CSV
     if surveys_6_7:
@@ -165,7 +189,7 @@ def process_all_surveys(digitalizadas_path='digitalizadas'):
 
         print(f"\n✓ Created: {output_file}")
         print(f"  - {len(surveys_6_7)} surveys")
-        print(f"  - {len(all_headers)} columns (15 metadata + 68 questions)")
+        print(f"  - {len(all_headers)} columns (20 metadata + 68 questions)")
 
 def main():
     import sys

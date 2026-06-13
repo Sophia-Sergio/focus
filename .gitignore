@@ -9,3 +9,4 @@ __pycache__/
 2026-03/test/*.pdf
 2026-03/test/*.csv
 scripts/.env
+scripts/token.pickle

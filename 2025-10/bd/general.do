@@ -121,7 +121,7 @@ run "bd/validacion_rut"
 
 preserve
     keep if tipo == "a"
-	run "bd/4_5_label_general_A.do"
+	run "bd/6_7_label_general_A.do"
 	log using "bd/entrega/6_7_A_codebook.log", replace
 		codebook
 	log close
