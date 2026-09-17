@@ -3,7 +3,8 @@
 Pre-fills `intrumentos/Reporte por curso Cohorte 1_Línea salida.pdf`:
 Nombre establecimiento, RBD, Región, Grupo (Control/Tratamiento, from
 `Tipo de Formulario`), and in the table row Nivel (e.g. 5A) and
-A · Total encuestas pre digitadas (number of students in the nómina for that curso).
+A · Total encuestas pre digitadas (number of students in the nómina for that curso),
+plus "COHORTE 1"/"COHORTE 2" (nómina `cohorte`) in the upper right corner.
 
     python3 2026-09/scripts/build_reportes_curso.py --rbd 4576 --curso 7C
     python3 2026-09/scripts/build_reportes_curso.py                   # all cursos
@@ -19,6 +20,8 @@ from pathlib import Path
 import fitz  # PyMuPDF
 
 from build_nominas_curso import NOMINA, ROOT, fit_size, load, safe_filename, text_centered, text_in
+
+FONT_BOLD = "/System/Library/Fonts/Supplemental/Arial Bold.ttf"
 
 TEMPLATE = ROOT / "intrumentos" / "Reporte por curso Cohorte 1_Línea salida.pdf"
 OUT_DIR = ROOT / "impresion" / "reportes"
@@ -74,8 +77,13 @@ class Geometry:
             cell = self._lines_around(cx, cell[3] + 2)
         return cell
 
+    def title_row(self) -> tuple[float, float, float]:
+        """(y_top, y_bot, right edge of the tables) for the "Reporte por curso" title line."""
+        r = self._label("Reporte por curso")
+        return r.y0, r.y1, max(h[2] for h in self.horiz)
 
-def build_one(template: Path, out: Path, nom_est, rbd, region, grupo, nivel, total):
+
+def build_one(template: Path, out: Path, nom_est, rbd, region, grupo, nivel, total, cohorte):
     doc = fitz.open()
     doc.insert_pdf(fitz.open(template), from_page=0, to_page=0)
     page = doc[0]
@@ -91,6 +99,13 @@ def build_one(template: Path, out: Path, nom_est, rbd, region, grupo, nivel, tot
         size = fit_size(value, x1 - x0 - 4, 10.5)
         text_centered(page, x0, x1, y0, y1, value, size)
 
+    label = f"COHORTE {cohorte}"
+    y0, y1, right = geo.title_row()
+    size = 12
+    w = fitz.Font(fontfile=FONT_BOLD).text_length(label, fontsize=size)
+    baseline = (y0 + y1) / 2 + size * 0.35
+    page.insert_text((right - w, baseline), label, fontsize=size, fontname="arialbd", fontfile=FONT_BOLD)
+
     out.parent.mkdir(parents=True, exist_ok=True)
     doc.subset_fonts()
     doc.save(out, garbage=4, deflate=True)
@@ -100,7 +115,6 @@ def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--nomina", type=Path, default=NOMINA)
     ap.add_argument("--template", type=Path, default=TEMPLATE)
-    ap.add_argument("--out-dir", type=Path, default=OUT_DIR)
     ap.add_argument("--rbd", type=int)
     ap.add_argument("--nom-est", help="exact nom_est (disambiguates RBDs shared by several schools)")
     ap.add_argument("--curso", help="e.g. 6B")
@@ -125,10 +139,14 @@ def main() -> None:
         grupos = g["grupo"].unique()
         if len(grupos) != 1:
             raise SystemExit(f"{nom_est} {curso}{letra}: mixed grupos {list(grupos)}")
+        cohortes = g["cohorte"].unique()
+        if len(cohortes) != 1:
+            raise SystemExit(f"{nom_est} {curso}{letra}: mixed cohortes {list(cohortes)}")
+        cohorte = int(cohortes[0])
         nivel = f"{curso}{letra}"
-        out = args.out_dir / region / safe_filename(f"{rbd}_{nom_est}_{nivel}.pdf")
-        build_one(args.template, out, nom_est, rbd, region, grupos[0], nivel, len(g))
-        print(f"{out.relative_to(ROOT)}  (grupo {grupos[0]}, {len(g)} encuestas pre digitadas)")
+        out = OUT_DIR / region / safe_filename(f"{rbd}_{nom_est}_{nivel}.pdf")
+        build_one(args.template, out, nom_est, rbd, region, grupos[0], nivel, len(g), cohorte)
+        print(f"{out.relative_to(ROOT)}  (cohorte {cohorte}, grupo {grupos[0]}, {len(g)} encuestas pre digitadas)")
 
 
 if __name__ == "__main__":

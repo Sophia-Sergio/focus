@@ -80,6 +80,9 @@ def load(nomina: Path) -> pd.DataFrame:
     df = df.rename(columns={"Región": "region", "Curso 2026": "curso"})
     df["rbd"] = df["rbd"].astype(int)
     df["curso"] = df["curso"].astype(int)
+    # The same school can be typed with or without a trailing period ("… Básico."),
+    # which would otherwise split its cursos across two sets of PDFs.
+    df["nom_est"] = df["nom_est"].astype(str).str.strip().str.rstrip(".").str.strip()
     return df
 
 
