@@ -15,6 +15,10 @@ import re
 import unicodedata
 from pathlib import Path
 
+import sys
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "lib"))
 from build_batches import NOMINA, instrument_index, load_students
 from compose import BatchWriter
 from overlay import Student

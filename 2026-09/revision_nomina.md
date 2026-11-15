@@ -30,7 +30,7 @@ Las 30 filas con punto no se distinguen en nada de las otras (misma `cohorte` 1,
 `Grupo` Tratamiento, `Modelo` Intensivo); todas tienen folio de 6 dígitos `582xxx`,
 lo que sugiere una carga posterior donde se retipeó el nombre.
 
-**Corrección:** `load()` en `scripts/build_nominas_curso.py` ahora normaliza
+**Corrección:** `load()` en `scripts/build/build_nominas_curso.py` ahora normaliza
 `nom_est` (quita espacios y puntos finales). La usan tanto
 `build_nominas_curso.py` como `build_reportes_curso.py`. Los 16 PDF partidos se
 borraron y el RBD 4530 se regeneró: 8 reportes con 40, 39, 39, 40, 39, 40, 41 y
@@ -93,8 +93,8 @@ Validación del RUT en la nómina: 17.717 válidos, 2.602 inválidos, 13 `#VALUE
 
 ## Cambios en los scripts
 
-- `scripts/build_nominas_curso.py` — `load()` normaliza `nom_est` (espacios y punto final).
-- `scripts/build_reportes_curso.py` — se eliminó `--out-dir`: la salida siempre
+- `scripts/build/build_nominas_curso.py` — `load()` normaliza `nom_est` (espacios y punto final).
+- `scripts/build/build_reportes_curso.py` — se eliminó `--out-dir`: la salida siempre
   queda en `impresion/reportes/<Región>/<rbd>_<nom_est>_<curso><letra>.pdf`.
   `title_row()` busca el título "Reporte por curso" (minúscula), según la
   plantilla vigente `intrumentos/Reporte por curso Cohorte 1_Línea salida.pdf`.
@@ -103,9 +103,9 @@ Validación del RUT en la nómina: 17.717 válidos, 2.602 inválidos, 13 `#VALUE
 
 ```sh
 cd 2026-09
-python3 scripts/build_reportes_curso.py                 # todos los cursos
-python3 scripts/build_reportes_curso.py --rbd 4530      # un establecimiento
-python3 scripts/build_reportes_curso.py --rbd 4307 --curso 5A
+python3 scripts/build/build_reportes_curso.py                 # todos los cursos
+python3 scripts/build/build_reportes_curso.py --rbd 4530      # un establecimiento
+python3 scripts/build/build_reportes_curso.py --rbd 4307 --curso 5A
 ```
 
 Los 705 reportes se generaron con la plantilla de Cohorte 1 / Línea salida,

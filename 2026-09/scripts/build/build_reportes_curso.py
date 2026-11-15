@@ -6,8 +6,8 @@ Nombre establecimiento, RBD, Región, Grupo (Control/Tratamiento, from
 A · Total encuestas pre digitadas (number of students in the nómina for that curso),
 plus "COHORTE 1"/"COHORTE 2" (nómina `cohorte`) in the upper right corner.
 
-    python3 2026-09/scripts/build_reportes_curso.py --rbd 4576 --curso 7C
-    python3 2026-09/scripts/build_reportes_curso.py                   # all cursos
+    python3 2026-09/scripts/build/build_reportes_curso.py --rbd 4576 --curso 7C
+    python3 2026-09/scripts/build/build_reportes_curso.py                   # all cursos
 
 Output: `impresion/reportes/<Región>/<rbd>_<nom_est>_<curso><letra>.pdf`
 """

@@ -3,10 +3,10 @@
 How a student's row from `Nomina_estudiantes_C1yC2.xlsx` is printed onto page 1 of
 `intrumentos/first_pages/Diagramación *.pdf`.
 
-Implemented by `scripts/fill_nomina_pdf.py` (geometry detection in `scripts/form_geometry.py`).
+Implemented by `scripts/build/fill_nomina_pdf.py` (geometry detection in `scripts/lib/form_geometry.py`).
 
 ```bash
-python3 2026-09/scripts/fill_nomina_pdf.py \
+python3 2026-09/scripts/build/fill_nomina_pdf.py \
     --pdf "2026-09/intrumentos/first_pages/Diagramación 4-5B_Control.pdf" \
     --folio 46175A8 \
     --out "2026-09/ejemplos/Diagramación 4-5B_Control__46175A8.pdf"
@@ -101,7 +101,7 @@ at that offset** and then filled. The run reports that it was drawn.
 
 ## Print batches
 
-`scripts/build_batches.py` writes one folder per región and, inside it, one PDF
+`scripts/build/build_batches.py` writes one folder per región and, inside it, one PDF
 per `Tipo de Formulario`. **A batch holds only the cover page of each student —
 one page per student, never the rest of the instrument.** Pages 2+ are identical
 for everybody and get printed separately. Students are ordered by school (`rbd`),
@@ -115,9 +115,9 @@ then curso, letra and name — the order they get handed out in.
 ```
 
 ```bash
-python3 2026-09/scripts/build_batches.py                  # all 56 batches
-python3 2026-09/scripts/build_batches.py --region Biobío
-python3 2026-09/scripts/build_batches.py --full-survey    # opt in to pages 2+
+python3 2026-09/scripts/build/build_batches.py                  # all 56 batches
+python3 2026-09/scripts/build/build_batches.py --region Biobío
+python3 2026-09/scripts/build/build_batches.py --full-survey    # opt in to pages 2+
 ```
 
 Covers come from `intrumentos/first_pages/`; `--full-survey` switches the source
@@ -147,14 +147,14 @@ In `ejemplos/`, one per rule worth eyeballing:
 
 ## Verification
 
-`scripts/verify_batches.py` reconciles `impresion/` against the nómina and writes
+`scripts/verify/verify_batches.py` reconciles `impresion/` against the nómina and writes
 `VERIFICACION.md`. It pulls each page's overlay content stream back out of the PDF
 and compares it byte-for-byte with what the rules produce for the student that
 page claims to be, so a lost student, a duplicate, a page on the wrong form or any
 drift between these rules and what was printed all show up.
 
 ```bash
-python3 2026-09/scripts/verify_batches.py
+python3 2026-09/scripts/verify/verify_batches.py
 ```
 
 ## How the geometry is found

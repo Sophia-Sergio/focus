@@ -10,9 +10,9 @@ A batch holds **only the cover page** of each student — one page per student.
 The rest of the instrument is identical for everyone and is printed separately.
 The fill rules are in `2026-09/REGLAS_LLENADO.md`.
 
-    python3 2026-09/scripts/build_batches.py                     # everything
-    python3 2026-09/scripts/build_batches.py --region Biobío     # one región
-    python3 2026-09/scripts/build_batches.py --full-survey       # cover + pages 2+
+    python3 2026-09/scripts/build/build_batches.py                     # everything
+    python3 2026-09/scripts/build/build_batches.py --region Biobío     # one región
+    python3 2026-09/scripts/build/build_batches.py --full-survey       # cover + pages 2+
 """
 
 from __future__ import annotations
@@ -27,10 +27,14 @@ from pathlib import Path
 
 import openpyxl
 
+import sys
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "lib"))
 from compose import BatchWriter
 from overlay import RUT_VALIDO, Student
 
-REPO = Path(__file__).resolve().parents[2]
+REPO = Path(__file__).resolve().parents[3]
 BASE = REPO / "2026-09"
 NOMINA = BASE / "Nomina_estudiantes_C1yC2.xlsx"
 SHEET = "Nómina pre digitacion"

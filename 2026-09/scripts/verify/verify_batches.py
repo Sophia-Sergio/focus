@@ -6,7 +6,7 @@ for the student it claims to be. That catches a lost student, a duplicated one, 
 page written against the wrong form, and any drift between the rules and what was
 actually printed.
 
-    python3 2026-09/scripts/verify_batches.py [--out 2026-09/VERIFICACION.md]
+    python3 2026-09/scripts/verify/verify_batches.py [--out 2026-09/VERIFICACION.md]
 """
 
 from __future__ import annotations
@@ -19,6 +19,11 @@ from pathlib import Path
 
 from pypdf import PdfReader
 
+import sys
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "lib"))
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "build"))
 from build_batches import NOMINA, OUT, instrument_index, load_students, safe_dir
 from form_geometry import detect
 from overlay import ROW_GAP, free_space, render, to_cells, wrap
@@ -160,7 +165,7 @@ def write_report(out: Path, impresion: Path, rows, tags, problems, total, seen) 
         by_region[r["region"]].append(r)
 
     L = [f"# Verificación de `{impresion.name}/`", "",
-         f"> Generado el {date.today().isoformat()} por `scripts/verify_batches.py`.", "",
+         f"> Generado el {date.today().isoformat()} por `scripts/verify/verify_batches.py`.", "",
          "## Resultado", ""]
     L.append(f"- **{len(rows)} lotes** (una carpeta por región, un PDF por `Tipo de Formulario`).")
     L.append(f"- **{sum(r['paginas'] for r in rows)} páginas**, una por estudiante.")

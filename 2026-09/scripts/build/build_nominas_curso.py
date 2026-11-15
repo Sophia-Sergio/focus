@@ -5,9 +5,9 @@ curso.pdf` (Nombre Establecimiento, RBD, Región, Curso) and extends its single
 table row into one numbered row per student of that curso, plus 15% extra blank
 rows (rounded up) at the end. Rows shrink as needed so every nómina is one page.
 
-    python3 2026-09/scripts/build_nominas_curso.py --sample          # one curso
-    python3 2026-09/scripts/build_nominas_curso.py --rbd 2155 --curso 6B
-    python3 2026-09/scripts/build_nominas_curso.py                   # all cursos
+    python3 2026-09/scripts/build/build_nominas_curso.py --sample          # one curso
+    python3 2026-09/scripts/build/build_nominas_curso.py --rbd 2155 --curso 6B
+    python3 2026-09/scripts/build/build_nominas_curso.py                   # all cursos
 
 Output: `impresion/nominas/<Región>/<rbd>_<nom_est>_<curso><letra>.pdf`
 """
@@ -23,7 +23,7 @@ from pathlib import Path
 import fitz  # PyMuPDF
 import pandas as pd
 
-ROOT = Path(__file__).resolve().parent.parent
+ROOT = Path(__file__).resolve().parents[2]
 NOMINA = ROOT / "Nomina_estudiantes_C1yC2.xlsx"
 TEMPLATE = ROOT / "intrumentos" / "Formato nómina de estudiantes pre digitados por curso.pdf"
 OUT_DIR = ROOT / "impresion" / "nominas"

@@ -1,6 +1,6 @@
 # Verificación de `impresion/`
 
-> Generado el 2026-09-07 por `scripts/verify_batches.py`.
+> Generado el 2026-09-07 por `scripts/verify/verify_batches.py`.
 
 ## Resultado
 
