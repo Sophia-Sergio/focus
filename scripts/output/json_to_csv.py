@@ -16,6 +16,7 @@ Output CSVs are written into the same folder as the input.
 
 import json
 import csv
+import re
 from pathlib import Path
 
 def load_survey_json(json_path):
@@ -108,7 +109,8 @@ def process_all_surveys(digitalizadas_path='digitalizadas'):
         print(f"No JSON files found in '{digitalizadas_path}'")
         return
 
-    json_files = [f for f in json_files if not f.name.startswith('metadata')]
+    # Only real surveys (e.g. 46654A1.json); skip Lista-de-curso, Nomina-*, Reporte-*, metadata*, etc.
+    json_files = [f for f in json_files if re.match(r'^\d+[A-Z]\d+$', f.stem)]
     print(f"Found {len(json_files)} JSON files across all subdirectories")
 
     # Show which folders contain JSON files

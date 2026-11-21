@@ -313,12 +313,24 @@ class SurveyExtractor:
             return False
 
 
+# Real surveys are named like 46654A1 (digits + section letter + digits).
+# Everything else in a course folder (Lista-de-curso, Nomina-de-estudiantes,
+# Reporte-por-curso, Planilla, "...-Una-hoja-extra", ...) is not a survey.
+SURVEY_FILENAME_RE = re.compile(r"^\d+[A-Z]\d+$")
+
+
+def is_survey_pdf(pdf_path) -> bool:
+    return bool(SURVEY_FILENAME_RE.match(Path(pdf_path).stem))
+
+
 def find_pending_pdfs(base_dir: str, force: bool = False) -> List[Tuple[str, str]]:
     """Find all PDFs that don't have a corresponding .json (unless force=True)."""
     base_path = Path(base_dir)
     pending = []
 
     for pdf_file in base_path.rglob("*.pdf"):
+        if not is_survey_pdf(pdf_file):
+            continue
         json_file = pdf_file.parent / f"{pdf_file.stem}.json"
         if force or not json_file.exists():
             pending.append((str(pdf_file), str(json_file)))
@@ -382,6 +394,10 @@ def process_single_survey(pdf_path: str, api_key: Optional[str] = None, force: b
     if not pdf.exists():
         print(f"Error: File not found: {pdf_path}")
         sys.exit(1)
+
+    if not is_survey_pdf(pdf):
+        print(f"Skipping {pdf.name}: not a survey file (expected name like 46654A1.pdf)")
+        return
 
     json_path = pdf.parent / f"{pdf.stem}.json"
 
