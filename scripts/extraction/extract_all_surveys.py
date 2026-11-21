@@ -258,6 +258,12 @@ class SurveyExtractor:
                         meta["total_questions"] = total_questions
                         meta["school_name"] = Path(pdf_path).parent.parent.name
                         meta["grade_folder"] = Path(pdf_path).parent.name
+                        # Folio check: the model only transcribes it; Python derives the flags
+                        folio = meta.get("folio")
+                        folio = re.sub(r"\s+", "", str(folio)).upper() if folio else None
+                        meta["folio"] = folio
+                        meta["folio_printed"] = folio is not None
+                        meta["folio_matches_survey_id"] = (folio == filename_without_ext.upper()) if folio else None
                         # Inject valid_rut right after student_run
                         if "student_run" in meta:
                             new_meta = {}

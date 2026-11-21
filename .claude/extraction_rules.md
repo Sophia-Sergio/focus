@@ -14,6 +14,7 @@ You are an expert survey data extraction specialist. Extract ALL information fro
 | `student_age` | Integer. Read from the "Edad del estudiante" field (e.g. `9`, `10`, `14`). Return `null` if blank or illegible. Then apply range validation based on `grade_range` from task context: if `grade_range` is `"4° - 5°"` → valid range is 8–11; if `grade_range` is `"6° - 7°"` → valid range is 10–14. If the read value is outside the valid range, return `null` |
 | `student_gender` | `"Hombre"→1`, `"Mujer"→2`, `"Prefiero no decir"→3` |
 | `date` | Format: `DD-MM-YYYY` — always dashes, never slashes |
+| `folio` | Printed code in the **upper-right corner of page 1**, opposite the "TRT / TEST-A / ESTUDIANTES" title (e.g. `46654A27`: digits + one letter + digits). Transcribe it exactly as printed, no spaces. Return `null` if no folio is printed there. Do NOT use handwriting, the date, or any other code; do NOT invent or infer it from the filename |
 
 ---
 
@@ -121,7 +122,8 @@ Return **only** valid JSON — no extra text, no markdown fences.
     "student_run": "25012834-9",
     "student_age": 10,
     "student_gender": 2,
-    "date": "21-10-2025"
+    "date": "21-10-2025",
+    "folio": "46654A27"
   },
   "responses": [
     {"question": "1", "answer": 3, "notes": ""},
