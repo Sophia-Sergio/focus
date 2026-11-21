@@ -30,12 +30,16 @@ def load_env(env_path: Path = ENV_FILE) -> dict:
     return env
 
 
-def get_credentials(credentials_file: str = "credentials.json") -> Credentials:
+def get_credentials(credentials_file: str = "credentials.json",
+                    scopes=None, token_path: Path = None) -> Credentials:
+    """Defaults to the read-only token; pass scopes/token_path for e.g. uploads."""
+    scopes = scopes or SCOPES
+    token_path = token_path or TOKEN_PATH
     creds = None
-    TOKEN_PATH.parent.mkdir(parents=True, exist_ok=True)
+    token_path.parent.mkdir(parents=True, exist_ok=True)
 
-    if TOKEN_PATH.exists():
-        creds = Credentials.from_authorized_user_file(str(TOKEN_PATH), SCOPES)
+    if token_path.exists():
+        creds = Credentials.from_authorized_user_file(str(token_path), scopes)
 
     if not creds or not creds.valid:
         if creds and creds.expired and creds.refresh_token:
@@ -55,9 +59,9 @@ def get_credentials(credentials_file: str = "credentials.json") -> Credentials:
                         "redirect_uris": ["urn:ietf:wg:oauth:2.0:oob", "http://localhost"],
                     }
                 }
-                flow = InstalledAppFlow.from_client_config(client_config, SCOPES)
+                flow = InstalledAppFlow.from_client_config(client_config, scopes)
             elif Path(credentials_file).exists():
-                flow = InstalledAppFlow.from_client_secrets_file(credentials_file, SCOPES)
+                flow = InstalledAppFlow.from_client_secrets_file(credentials_file, scopes)
             else:
                 print(f"Error: no credentials found in '{ENV_FILE}' or '{credentials_file}'")
                 print("Set GOOGLE_OAUTH_CLIENT_ID and GOOGLE_OAUTH_DESKTOP in scripts/.env")
@@ -65,6 +69,6 @@ def get_credentials(credentials_file: str = "credentials.json") -> Credentials:
 
             creds = flow.run_local_server(port=0)
 
-        TOKEN_PATH.write_text(creds.to_json())
+        token_path.write_text(creds.to_json())
 
     return creds
