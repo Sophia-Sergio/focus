@@ -41,6 +41,7 @@ def extract_survey_row(survey_data, max_questions):
     """Extract a single row of data from a survey JSON"""
     metadata = survey_data['metadata']
     responses = survey_data['responses']
+    usage = survey_data.get('extraction_usage') or {}
 
     # Build the row with metadata
     raw_name = metadata.get('student_name') or ''
@@ -68,7 +69,11 @@ def extract_survey_row(survey_data, max_questions):
         'school_folder': metadata.get('school_folder', ''),
         'grade_folder': metadata.get('grade_folder', ''),
         'section_folder': metadata.get('section_folder', ''),
-        'valid_rut': metadata.get('valid_rut', '')
+        'valid_rut': metadata.get('valid_rut', ''),
+        'input_tokens': usage.get('input_tokens', ''),
+        'output_tokens': usage.get('output_tokens', ''),
+        'total_tokens': usage.get('total_tokens', ''),
+        'cost_usd': usage.get('cost_usd', ''),
     }
 
     # Add answer columns (q1, q2, q3, ...)
@@ -103,6 +108,7 @@ def process_all_surveys(digitalizadas_path='digitalizadas'):
         print(f"No JSON files found in '{digitalizadas_path}'")
         return
 
+    json_files = [f for f in json_files if not f.name.startswith('metadata')]
     print(f"Found {len(json_files)} JSON files across all subdirectories")
 
     # Show which folders contain JSON files
@@ -123,7 +129,10 @@ def process_all_surveys(digitalizadas_path='digitalizadas'):
     for json_file in json_files:
         try:
             survey_data = load_survey_json(json_file)
-            grade_range = survey_data['metadata'].get('grade_range', 'unknown')
+            if not isinstance(survey_data, dict) or 'metadata' not in survey_data or 'responses' not in survey_data:
+                skipped.append((json_file, "not a survey JSON"))
+                continue
+            grade_range = survey_data['metadata'].get('grade_range') or 'unknown'
 
             # Normalize grade_range by removing spaces for comparison
             grade_range_normalized = grade_range.replace(' ', '')
@@ -150,7 +159,8 @@ def process_all_surveys(digitalizadas_path='digitalizadas'):
         'survey_id', 'type', 'grade_range', 'student_name', 'student_lastname', 'student_firstname',
         'student_run', 'valid_rut', 'student_age', 'valid_age', 'student_gender', 'school_name', 'grade', 'section',
         'date', 'total_questions', 'completion_status', 'school_folder',
-        'grade_folder', 'section_folder'
+        'grade_folder', 'section_folder',
+        'input_tokens', 'output_tokens', 'total_tokens', 'cost_usd'
     ]
 
     # Create 4-5 consolidated CSV
@@ -170,7 +180,7 @@ def process_all_surveys(digitalizadas_path='digitalizadas'):
 
         print(f"\n✓ Created: {output_file}")
         print(f"  - {len(surveys_4_5)} surveys")
-        print(f"  - {len(all_headers)} columns (20 metadata + 50 questions)")
+        print(f"  - {len(all_headers)} columns (24 metadata + 50 questions)")
 
     # Create 6-7 consolidated CSV
     if surveys_6_7:
@@ -189,7 +199,7 @@ def process_all_surveys(digitalizadas_path='digitalizadas'):
 
         print(f"\n✓ Created: {output_file}")
         print(f"  - {len(surveys_6_7)} surveys")
-        print(f"  - {len(all_headers)} columns (20 metadata + 68 questions)")
+        print(f"  - {len(all_headers)} columns (24 metadata + 68 questions)")
 
 def main():
     import sys

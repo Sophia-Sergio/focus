@@ -74,6 +74,40 @@ except ImportError:
 load_dotenv(Path(__file__).parent.parent / ".env")
 
 
+MODEL_ID = "claude-sonnet-4-5-20250929"
+
+# USD per million tokens (Claude Sonnet 4.5). Update if the model changes.
+PRICING_PER_MTOK = {
+    "input": 3.00,
+    "output": 15.00,
+    "cache_write": 3.75,
+    "cache_read": 0.30,
+}
+
+
+def build_usage(usage, model: str = MODEL_ID) -> Dict:
+    """Turn an Anthropic `message.usage` object into a token/cost summary."""
+    input_tokens = getattr(usage, "input_tokens", 0) or 0
+    output_tokens = getattr(usage, "output_tokens", 0) or 0
+    cache_write = getattr(usage, "cache_creation_input_tokens", 0) or 0
+    cache_read = getattr(usage, "cache_read_input_tokens", 0) or 0
+    cost = (
+        input_tokens * PRICING_PER_MTOK["input"]
+        + output_tokens * PRICING_PER_MTOK["output"]
+        + cache_write * PRICING_PER_MTOK["cache_write"]
+        + cache_read * PRICING_PER_MTOK["cache_read"]
+    ) / 1_000_000
+    return {
+        "model": model,
+        "input_tokens": input_tokens,
+        "output_tokens": output_tokens,
+        "cache_creation_input_tokens": cache_write,
+        "cache_read_input_tokens": cache_read,
+        "total_tokens": input_tokens + output_tokens + cache_write + cache_read,
+        "cost_usd": round(cost, 6),
+    }
+
+
 def validate_rut(rut: str) -> bool:
     """Validate a Chilean RUT using the official modulo-11 algorithm."""
     if not rut:
@@ -199,7 +233,7 @@ class SurveyExtractor:
             for attempt in range(max_retries):
                 try:
                     message = self.client.messages.create(
-                        model="claude-sonnet-4-5-20250929",
+                        model=MODEL_ID,
                         max_tokens=16000,
                         temperature=0,
                         messages=[{
@@ -234,6 +268,7 @@ class SurveyExtractor:
                             survey_data["metadata"] = new_meta
                         else:
                             survey_data["metadata"] = meta
+                        survey_data["extraction_usage"] = build_usage(message.usage)
                         return survey_data
                     else:
                         print(f"No JSON found in response for {pdf_path}")
@@ -303,6 +338,8 @@ def _make_extractor(api_key: Optional[str]) -> "SurveyExtractor":
 def _run_batch(extractor: "SurveyExtractor", pending: List[Tuple[str, str]], delay: float):
     success_count = 0
     error_count = 0
+    total_tokens = 0
+    total_cost = 0.0
 
     for i, (pdf_path, json_path) in enumerate(pending, 1):
         print(f"\n[{i}/{len(pending)}] Processing: {Path(pdf_path).name}")
@@ -311,7 +348,12 @@ def _run_batch(extractor: "SurveyExtractor", pending: List[Tuple[str, str]], del
 
         if survey_data:
             if extractor.save_survey_json(survey_data, json_path):
-                print(f"✓ Saved: {Path(json_path).name}")
+                u = survey_data.get("extraction_usage", {})
+                total_tokens += u.get("total_tokens", 0)
+                total_cost += u.get("cost_usd", 0.0)
+                print(f"✓ Saved: {Path(json_path).name}  "
+                      f"({u.get('input_tokens', 0)} in / {u.get('output_tokens', 0)} out tokens, "
+                      f"${u.get('cost_usd', 0.0):.4f})")
                 success_count += 1
             else:
                 print(f"✗ Failed to save JSON")
@@ -331,6 +373,7 @@ def _run_batch(extractor: "SurveyExtractor", pending: List[Tuple[str, str]], del
     print(f"Total: {len(pending)}  |  Success: {success_count}  |  Errors: {error_count}")
     if pending:
         print(f"Success rate: {success_count/len(pending)*100:.1f}%")
+    print(f"Total tokens: {total_tokens:,}  |  Total cost: ${total_cost:.4f}")
 
 
 def process_single_survey(pdf_path: str, api_key: Optional[str] = None, force: bool = False):
