@@ -20,6 +20,7 @@ Auth: shared Drive OAuth helper (scripts/download/drive_auth.py, scripts/.env).
 Prints rows with extracted surveys whose key is not in the sheet.
 """
 import argparse
+import json
 from datetime import datetime
 import re
 import sys
@@ -52,8 +53,13 @@ DEFAULT_OUT = REPO / "2026-09" / "planilla_revision_encuestas.xlsx"
 def count_extracted(json_dir: Path) -> Counter:
     counts = Counter()
     for f in json_dir.rglob("*.json"):
-        m = SURVEY_RE.match(f.stem)
-        if m:
+        # survey_id keeps the original id even after rename_by_folio.py renamed the file
+        try:
+            meta = json.loads(f.read_text(encoding="utf-8")).get("metadata") or {}
+        except (ValueError, OSError, AttributeError):
+            continue
+        m = SURVEY_RE.match(str(meta.get("survey_id") or f.stem))
+        if m and "student_name" in meta:
             rbd, curso, letra, _ = m.groups()
             counts[(int(rbd), int(curso), letra)] += 1
     return counts

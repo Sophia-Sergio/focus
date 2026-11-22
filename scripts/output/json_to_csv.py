@@ -75,6 +75,12 @@ def extract_survey_row(survey_data, max_questions):
         'output_tokens': usage.get('output_tokens', ''),
         'total_tokens': usage.get('total_tokens', ''),
         'cost_usd': usage.get('cost_usd', ''),
+        'folio': metadata.get('folio', ''),
+        'folio_printed': metadata.get('folio_printed', ''),
+        'folio_matches_survey_id': metadata.get('folio_matches_survey_id', ''),
+        'original_filename': metadata.get('original_filename', ''),
+        'final_folio': metadata.get('final_folio', ''),
+        'folio_source': metadata.get('folio_source', ''),
     }
 
     # Add answer columns (q1, q2, q3, ...)
@@ -110,7 +116,7 @@ def process_all_surveys(digitalizadas_path='digitalizadas'):
         return
 
     # Only real surveys (e.g. 46654A1.json); skip Lista-de-curso, Nomina-*, Reporte-*, metadata*, etc.
-    json_files = [f for f in json_files if re.match(r'^\d+[A-Z]\d+$', f.stem)]
+    json_files = [f for f in json_files if re.match(r'^(\d+[A-Z]\d+|\d{5,})$', f.stem)]
     print(f"Found {len(json_files)} JSON files across all subdirectories")
 
     # Show which folders contain JSON files
@@ -162,7 +168,9 @@ def process_all_surveys(digitalizadas_path='digitalizadas'):
         'student_run', 'valid_rut', 'student_age', 'valid_age', 'student_gender', 'school_name', 'grade', 'section',
         'date', 'total_questions', 'completion_status', 'school_folder',
         'grade_folder', 'section_folder',
-        'input_tokens', 'output_tokens', 'total_tokens', 'cost_usd'
+        'input_tokens', 'output_tokens', 'total_tokens', 'cost_usd',
+        'folio', 'folio_printed', 'folio_matches_survey_id',
+        'original_filename', 'final_folio', 'folio_source'
     ]
 
     # Create 4-5 consolidated CSV
@@ -182,7 +190,7 @@ def process_all_surveys(digitalizadas_path='digitalizadas'):
 
         print(f"\n✓ Created: {output_file}")
         print(f"  - {len(surveys_4_5)} surveys")
-        print(f"  - {len(all_headers)} columns (24 metadata + 50 questions)")
+        print(f"  - {len(all_headers)} columns (30 metadata + 50 questions)")
 
     # Create 6-7 consolidated CSV
     if surveys_6_7:
@@ -201,7 +209,7 @@ def process_all_surveys(digitalizadas_path='digitalizadas'):
 
         print(f"\n✓ Created: {output_file}")
         print(f"  - {len(surveys_6_7)} surveys")
-        print(f"  - {len(all_headers)} columns (24 metadata + 68 questions)")
+        print(f"  - {len(all_headers)} columns (30 metadata + 68 questions)")
 
 def main():
     import sys

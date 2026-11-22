@@ -319,10 +319,11 @@ class SurveyExtractor:
             return False
 
 
-# Real surveys are named like 46654A1 (digits + section letter + digits).
+# Real surveys are named like 46654A1 (digits + section letter + digits); after
+# rename_by_folio.py they carry their folio, which may also be purely numeric.
 # Everything else in a course folder (Lista-de-curso, Nomina-de-estudiantes,
 # Reporte-por-curso, Planilla, "...-Una-hoja-extra", ...) is not a survey.
-SURVEY_FILENAME_RE = re.compile(r"^\d+[A-Z]\d+$")
+SURVEY_FILENAME_RE = re.compile(r"^(\d+[A-Z]\d+|\d{5,})$")  # 46654A7, or a numeric folio
 
 
 def is_survey_pdf(pdf_path) -> bool:

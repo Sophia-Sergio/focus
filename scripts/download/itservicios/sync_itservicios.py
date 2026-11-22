@@ -79,16 +79,31 @@ def safe(s):
     return s.strip().replace("/", "_")
 
 
+def load_renames(out):
+    """Ledger written by scripts/extraction/rename_by_folio.py: original path -> renamed file."""
+    import unicodedata
+    f = out / ".renames.json"
+    if not f.exists():
+        return {}
+    return {unicodedata.normalize("NFC", k): v for k, v in json.loads(f.read_text(encoding="utf-8")).items()}
+
+
 def main():
     if len(sys.argv) > 1 and sys.argv[1].startswith("-"):
         sys.exit(__doc__)
     out = Path(sys.argv[1]) if len(sys.argv) > 1 else REPO / "2026-09" / "pdfs"
     files = list_files()
+    renames = load_renames(out)
     ok = skip = bad = 0
     for a in files:
         d = out.joinpath(*[safe(s) for s in a["ruta_carpeta"].split(" / ")])
         d.mkdir(parents=True, exist_ok=True)
         dest = d / safe(a["nombre"])
+        import unicodedata
+        r = renames.get(unicodedata.normalize("NFC", str(dest.relative_to(out))))
+        if r and r["sha256"] == a["sha256"] and (out / r["renamed_to"]).exists():
+            skip += 1  # renamed to its folio locally; do not re-download the original name
+            continue
         if dest.exists() and sha256(dest) == a["sha256"]:
             skip += 1
             continue
