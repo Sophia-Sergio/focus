@@ -254,11 +254,23 @@ The extraction rules are in the system prompt. Extract the survey shown in the i
         return {"pdf_path": str(pdf_path), "survey_id": Path(pdf_path).stem,
                 "grade_range": "6° - 7°" if wide else "4° - 5°", "total_questions": 68 if wide else 50}
 
+    SCALE_1 = ["No es cierto", "Poco cierto", "Bastante cierto", "Muy cierto"]
+    SCALE_2 = ["Nunca", "Rara vez", "A veces", "Siempre"]
+
     @staticmethod
-    def enforce_mark_rule(responses: List[Dict]) -> int:
+    def _norm_label(text) -> str:
+        import unicodedata
+        t = unicodedata.normalize("NFKD", str(text)).encode("ascii", "ignore").decode()
+        return re.sub(r"\s+", " ", t.lower()).strip()
+
+    @staticmethod
+    def enforce_mark_rule(responses: List[Dict], scale_1_end: Optional[int] = None) -> int:
         """Apply the mark-counting rule deterministically from the model's `marked_columns` evidence:
         exactly 1 marked column -> that is the answer; 2+ -> null (invalid); 0 -> null (no answer).
         Overrides the model's own `answer` when it disagrees (e.g. a crossed-out box that it ignored).
+        If `marked_labels` (header text of each marked column) is present and disagrees with the column
+        number(s) for that question's scale, the answer is set to null with a review note: the model is
+        contradicting itself, so the reading is not trusted.
         Responses without `marked_columns` are left untouched. Returns how many answers were overridden."""
         changed = 0
         for r in responses:
@@ -278,6 +290,19 @@ The extraction rules are in the system prompt. Extract the survey shown in the i
                 new_answer = None
                 listed = ", ".join(map(str, cols[:-1])) + f" y {cols[-1]}"
                 new_note = f"Inválido: Múltiples respuestas detectadas - marca en columna {listed}"
+            labels = r.get("marked_labels")
+            if scale_1_end is not None and isinstance(labels, list) and cols:
+                try:
+                    scale = SurveyExtractor.SCALE_1 if int(r.get("question")) <= scale_1_end else SurveyExtractor.SCALE_2
+                except (TypeError, ValueError):
+                    scale = None
+                if scale is not None:
+                    expected = [SurveyExtractor._norm_label(scale[c - 1]) for c in cols]
+                    given = [SurveyExtractor._norm_label(x) for x in labels]
+                    if expected != given:
+                        new_answer = None
+                        new_note = (f"Revisar: la columna marcada ({', '.join(map(str, cols))}) no coincide con la "
+                                    f"etiqueta leída ({', '.join(map(str, labels)) or 'ninguna'})")
             if r.get("answer") != new_answer:
                 changed += 1
             r["answer"], r["notes"] = new_answer, new_note
@@ -317,7 +342,9 @@ The extraction rules are in the system prompt. Extract the survey shown in the i
             survey_data["metadata"] = new_meta
         else:
             survey_data["metadata"] = meta
-        SurveyExtractor.enforce_mark_rule(survey_data.get("responses", []))
+        scale_1_end = 49 if ctx["total_questions"] == 68 else 31
+        survey_data["metadata"]["mark_rule_overrides"] = SurveyExtractor.enforce_mark_rule(
+            survey_data.get("responses", []), scale_1_end)
         survey_data["extraction_usage"] = build_usage(usage, batch=batch)
         return survey_data
 

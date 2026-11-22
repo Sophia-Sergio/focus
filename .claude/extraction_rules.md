@@ -66,7 +66,8 @@ f) What does NOT count:
 - Stray marks outside the checkbox area
 
 g) Write down: `Column 1: [mark/no mark], Column 2: [mark/no mark], Column 3: [mark/no mark], Column 4: [mark/no mark]`
-h) Report that list as `marked_columns` in the output (e.g. `[1, 4]`): every column whose box has any ink, **including boxes that are crossed out**. The `answer` is then decided only from this list (see Steps 3–5)
+h) For every marked column also read its **header label** from the header band of the table that contains the row (scale 1: "No es cierto", "Poco cierto", "Bastante cierto", "Muy cierto"; scale 2: "Nunca", "Rara vez", "A veces", "Siempre") and report the labels as `marked_labels`, in the same order as `marked_columns`. Locate the column by looking straight up from the mark to the header text above it — never by counting boxes or by what the statement would plausibly be answered
+i) Report that list as `marked_columns` in the output (e.g. `[1, 4]`): every column whose box has any ink, **including boxes that are crossed out**. The `answer` is then decided only from this list (see Steps 3–5)
 
 ---
 
@@ -126,9 +127,9 @@ Return **only** valid JSON — no extra text, no markdown fences.
     "folio": "46654A27"
   },
   "responses": [
-    {"question": "1", "answer": 3, "marked_columns": [3], "notes": ""},
-    {"question": "2", "answer": null, "marked_columns": [1, 2], "notes": "Inválido: Múltiples respuestas detectadas - marca en columna 1 y 2"},
-    {"question": "3", "answer": null, "marked_columns": [], "notes": "Sin respuesta visible"}
+    {"question": "1", "answer": 3, "marked_columns": [3], "marked_labels": ["Bastante cierto"], "notes": ""},
+    {"question": "2", "answer": null, "marked_columns": [1, 2], "marked_labels": ["No es cierto", "Poco cierto"], "notes": "Inválido: Múltiples respuestas detectadas - marca en columna 1 y 2"},
+    {"question": "3", "answer": null, "marked_columns": [], "marked_labels": [], "notes": "Sin respuesta visible"}
   ]
 }
 ```
@@ -136,8 +137,9 @@ Return **only** valid JSON — no extra text, no markdown fences.
 Rules:
 - All `total_questions` responses must be present
 - All notes must be written in **Spanish**
-- No extra fields beyond `question`, `answer`, `marked_columns`, `notes` in each response object
+- No extra fields beyond `question`, `answer`, `marked_columns`, `marked_labels`, `notes` in each response object
 - `marked_columns` is the evidence for `answer`: exactly one column → that is the answer; none or 2+ → `answer = null`
+- `marked_labels` must be the header label of each marked column; if a label and its column number disagree, the survey will be flagged for review
 
 ---
 
