@@ -2,7 +2,7 @@
 """Rename extracted survey PDFs (and their JSONs) to the folio printed on the form.
 
 Usage:
-    python3 scripts/extraction/rename_by_folio.py [DIR] [--nomina FILE] [--dry-run] [--allow-unknown]
+    python3 scripts/extraction/rename_by_folio.py [DIR] [--nomina FILE] [--dry-run] [--only FILE] [--allow-unknown]
 
 DIR defaults to 2026-09/pdfs. For every survey with an extracted JSON:
   * metadata.folio (printed, read by extract_all_surveys.py) -> <folio>.pdf / <folio>.json
@@ -120,6 +120,8 @@ def main():
     ap.add_argument("dir", nargs="?", type=Path, default=DEFAULT_DIR)
     ap.add_argument("--nomina", type=Path, default=DEFAULT_NOMINA)
     ap.add_argument("--dry-run", action="store_true")
+    ap.add_argument("--only", type=Path, action="append",
+                    help="only process this survey PDF/JSON (repeatable); default: everything under DIR")
     ap.add_argument("--allow-unknown", action="store_true",
                     help="also rename printed folios that are not in the nómina / other group")
     args = ap.parse_args()
@@ -140,8 +142,11 @@ def main():
     all_taken = set().union(*taken_by_dir.values()) if taken_by_dir else set()
 
     plan, report = [], []   # plan: dict(src_json, src_pdf, folio, source, meta)
+    only = {p.resolve().with_suffix("") for p in args.only} if args.only else None
     for jp in sorted(root.rglob("*.json")):
         if jp.name == LEDGER:
+            continue
+        if only is not None and jp.resolve().with_suffix("") not in only:
             continue
         rel = nfc(str(jp.relative_to(root)))
         try:
