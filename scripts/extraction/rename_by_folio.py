@@ -191,28 +191,39 @@ def main():
         item["folio"] = next_folio(item["group"], group_folios, taken)
         taken.add(item["folio"])
 
-    # conflicts
+    # conflicts. Surveys that end up NOT being renamed keep their file name, so no one may take it:
+    # iterate until the set of files that are really moving is stable.
     by_target = defaultdict(list)
     for it in plan:
         by_target[(it["pdf"].parent, it["folio"])].append(it)
-    moving = {it["pdf"] for it in plan}
-    final, noop = [], []
+    excluded, reason = set(), {}
     for (d, folio), items in by_target.items():
         if len(items) > 1:
             for it in items:
-                report.append((nfc(str(it["jp"].relative_to(root))), "CONFLICT",
-                               f"{len(items)} surveys claim folio {folio}: " + ", ".join(i["pdf"].name for i in items)))
-            continue
-        it = items[0]
-        tgt = d / f"{folio}.pdf"
-        if it["pdf"] == tgt:
+                excluded.add(it["pdf"])
+                reason[it["pdf"]] = ("CONFLICT", f"{len(items)} surveys claim folio {folio}: "
+                                     + ", ".join(i["pdf"].name for i in items))
+    changed = True
+    while changed:
+        changed = False
+        moving = {it["pdf"] for it in plan if it["pdf"] not in excluded}
+        for it in plan:
+            if it["pdf"] in excluded:
+                continue
+            tgt = it["pdf"].parent / f"{it['folio']}.pdf"
+            if tgt != it["pdf"] and tgt.exists() and tgt not in moving:
+                excluded.add(it["pdf"])
+                reason[it["pdf"]] = ("CONFLICT", f"target {tgt.name} already exists and is not being renamed "
+                                     "(another survey; not overwritten)")
+                changed = True
+    final, noop = [], []
+    for it in plan:
+        if it["pdf"] in excluded:
+            report.append((nfc(str(it["jp"].relative_to(root))), *reason[it["pdf"]]))
+        elif it["pdf"] == it["pdf"].parent / f"{it['folio']}.pdf":
             noop.append(it)      # name already equals its folio: nothing to rename, but record it
-            continue
-        if tgt.exists() and tgt not in moving:
-            report.append((nfc(str(it["jp"].relative_to(root))), "CONFLICT",
-                           f"target {tgt.name} already exists (another survey; not overwritten)"))
-            continue
-        final.append(it)
+        else:
+            final.append(it)
 
     # execute (two-phase through temp names so swaps work)
     done = 0
@@ -232,6 +243,10 @@ def main():
         if args.dry_run:
             continue
         tmp_pdf, tmp_json = it["tmp"]
+        if new_pdf.exists() or new_json.exists():      # last line of defence: never overwrite
+            tmp_pdf.rename(it["pdf"]); tmp_json.rename(it["jp"])
+            report.append((orig_rel, "ABORTED", f"{new_pdf.name} appeared during the rename; restored"))
+            continue
         sha = sha256(tmp_pdf)
         meta = it["meta"]
         meta["original_filename"] = it["pdf"].name

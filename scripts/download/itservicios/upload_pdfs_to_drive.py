@@ -2,13 +2,15 @@
 """Idempotent upload of the itservicios PDFs to Google Drive, preserving the
 local folder tree (REGION/Colegio/Curso/file.pdf).
 
-Usage: upload_pdfs_to_drive.py [SRC_DIR] [--folder-id ID] [--workers N] [--dry-run]
+Usage: upload_pdfs_to_drive.py [SRC_DIR] [--folder-id ID] [--workers N] [--only SUBDIR] [--dry-run]
   SRC_DIR   default: <repo>/2026-09/pdfs
   --folder-id  destination Drive folder (default: the project folder below)
 
 Safe to run repeatedly (also used as the last step of sync_itservicios.sh):
   - files already in Drive with the same name and MD5 are skipped
   - a file whose content changed locally is updated in place (no duplicates)
+  - a file renamed locally by rename_by_folio.py (see <src>/.renames.json) is renamed in Drive
+    (matched by original name + MD5) instead of uploaded again, so no duplicate copies
   - never deletes anything in Drive
   - only one instance runs at a time (flock on logs/upload.lock); a second one exits
 Only *.pdf files are uploaded (no JSON/CSV/.part).
@@ -140,7 +142,8 @@ def md5(path):
 
 
 def list_children(svc, parent_id):
-    """{name: {'id','md5','folder'}} for non-trashed children of a folder."""
+    """{name: [ {'id','md5','folder'}, ... ]} for non-trashed children of a folder
+    (Drive allows several files with the same name, so each name maps to a list)."""
     out, token = {}, None
     while True:
         r = call(lambda: svc.files().list(
@@ -148,8 +151,8 @@ def list_children(svc, parent_id):
             fields="nextPageToken, files(id,name,mimeType,md5Checksum)",
             pageSize=1000, pageToken=token).execute())
         for f in r["files"]:
-            out.setdefault(f["name"], {"id": f["id"], "md5": f.get("md5Checksum"),
-                                       "folder": f["mimeType"] == FOLDER_MIME})
+            out.setdefault(f["name"], []).append({"id": f["id"], "md5": f.get("md5Checksum"),
+                                                  "folder": f["mimeType"] == FOLDER_MIME})
         token = r.get("nextPageToken")
         if not token:
             return out
@@ -166,18 +169,60 @@ def ensure_folders(svc, src, files, root_id):
             nxt = cur / part
             if nxt not in ids:
                 parent = ids[cur]
-                hit = listings[parent].get(part)
-                if hit and hit["folder"]:
+                hit = next((e for e in listings[parent].get(part, []) if e["folder"]), None)
+                if hit:
                     fid = hit["id"]
                 else:
                     fid = call(lambda: svc.files().create(
                         body={"name": part, "mimeType": FOLDER_MIME, "parents": [parent]},
                         fields="id").execute())["id"]
-                    listings[parent][part] = {"id": fid, "md5": None, "folder": True}
+                    listings[parent].setdefault(part, []).append({"id": fid, "md5": None, "folder": True})
                 ids[nxt] = fid
                 listings[fid] = list_children(svc, fid)
             cur = nxt
     return ids, listings
+
+
+def load_ledger(src):
+    """rename_by_folio.py ledger: {original rel path: {'renamed_to': rel path, ...}} -> {new rel: original rel}."""
+    import unicodedata
+    f = src / ".renames.json"
+    if not f.exists():
+        return {}
+    nfc = lambda x: unicodedata.normalize("NFC", x)
+    return {nfc(v["renamed_to"]): nfc(k) for k, v in json.loads(f.read_text(encoding="utf-8")).items()}
+
+
+def plan_actions(files, src, ids, listings, ledger, md5_of=md5):
+    """Decide what to do for each local file. Returns (skipped, renames, todo):
+      skipped: count already in Drive (same name + MD5)
+      renames: [(drive_entry, new_name, rel)] -- the file was renamed locally by rename_by_folio.py;
+               rename the existing Drive copy (found by original name + MD5) instead of re-uploading
+      todo:    [(path, parent_id, existing_entry_or_None)] uploads / in-place updates
+    The in-memory listing is updated as renames are planned, so swaps (A4->A1 while A1->A21) resolve
+    by content hash and never confuse one file with another."""
+    import unicodedata
+    skipped, renames, todo = 0, [], []
+    for p in files:
+        rel = unicodedata.normalize("NFC", p.relative_to(src).as_posix())
+        parent = ids[p.relative_to(src).parent]
+        entries = [e for e in listings[parent].get(p.name, []) if not e["folder"]]
+        h = md5_of(p)
+        if any(e["md5"] == h for e in entries):
+            skipped += 1
+            continue
+        orig = ledger.get(rel)
+        if orig:
+            old_name = unicodedata.normalize("NFC", Path(orig).name)
+            lst = listings[parent].get(old_name, [])
+            cand = next((e for e in lst if not e["folder"] and e["md5"] == h), None)
+            if cand:
+                lst.remove(cand)
+                listings[parent].setdefault(p.name, []).append(cand)
+                renames.append((cand, p.name, rel))
+                continue
+        todo.append((p, parent, entries[0] if len(entries) == 1 else None))
+    return skipped, renames, todo
 
 
 def upload_one(creds, path, parent_id, existing):
@@ -196,11 +241,18 @@ def main():
     ap.add_argument("src", nargs="?", type=Path, default=DEFAULT_SRC)
     ap.add_argument("--folder-id", default=DEFAULT_FOLDER_ID)
     ap.add_argument("--workers", type=int, default=4)
+    ap.add_argument("--only", action="append", metavar="SUBDIR",
+                    help="only upload PDFs under this folder, relative to SRC_DIR (repeatable), e.g. "
+                         "'BIOBÍO/Colegio Edward/4A'; the folder structure above it is still created")
     ap.add_argument("--dry-run", action="store_true", help="Only count local PDFs; no auth, no upload")
     args = ap.parse_args()
 
     src = args.src.resolve()
-    files = sorted(p for p in src.rglob("*.pdf") if p.is_file())
+    roots = [src / o for o in args.only] if args.only else [src]
+    for r in roots:
+        if not r.is_dir():
+            sys.exit(f"--only folder not found: {r}")
+    files = sorted(p for r in roots for p in r.rglob("*.pdf") if p.is_file())
     size_mb = sum(p.stat().st_size for p in files) / 1e6
     # One upload at a time (manual + daily runs share this lock; released on exit/crash).
     import fcntl
@@ -223,18 +275,17 @@ def main():
     log(f"Drive folders ready: {len(ids)} (listed {sum(len(v) for v in listings.values())} existing entries)")
 
     log("comparing local files with Drive (MD5)...")
-    todo, skipped = [], 0
-    for n, p in enumerate(files, 1):
-        if n % 1000 == 0:
-            log(f"  compared {n}/{len(files)}")
-        rel_dir = p.relative_to(src).parent
-        parent = ids[rel_dir]
-        ex = listings[parent].get(p.name)
-        if ex and not ex["folder"] and ex["md5"] == md5(p):
-            skipped += 1
-        else:
-            todo.append((p, parent, ex if ex and not ex["folder"] else None))
-    log(f"already in Drive: {skipped}  |  to upload/update: {len(todo)}")
+    skipped, renames, todo = plan_actions(files, src, ids, listings, load_ledger(src))
+    log(f"already in Drive: {skipped}  |  rename in Drive: {len(renames)}  |  to upload/update: {len(todo)}")
+    renamed = 0
+    for entry, new_name, rel in renames:
+        try:
+            call(lambda: svc.files().update(fileId=entry["id"], body={"name": new_name}, fields="id").execute())
+            renamed += 1
+            log(f"RENAMED  (in Drive) -> {rel}")
+        except Exception as e:
+            log(f"FAIL     rename -> {rel}: {e}", err=True)
+            sys.exit(1)
 
     up = upd = bad = 0
     t0 = time.time()
@@ -256,7 +307,7 @@ def main():
                 eta = (len(todo) - i) / rate if rate else 0
                 log(f"PROGRESS {i}/{len(todo)} ({i/len(todo):.0%})  {rate:.1f} files/s  ETA {eta/60:.0f} min  "
                     f"uploaded={up} updated={upd} failed={bad}")
-    log(f"DONE uploaded={up} updated={upd} skipped={skipped} failed={bad}")
+    log(f"DONE uploaded={up} updated={upd} renamed={renamed} skipped={skipped} failed={bad}")
     sys.exit(1 if bad else 0)
 
 

@@ -9,8 +9,8 @@ You are an expert survey data extraction specialist. Extract ALL information fro
 | Field | Rule |
 |---|---|
 | `type` | Second word of test type string (e.g. "TEST-A", "TEST-B") |
-| `student_name` | Full name exactly as written. Prioritize common Spanish/Chilean names when handwriting is ambiguous |
-| `student_run` | Format: `XXXXXXXX-Y` — no periods, no spaces. Keep check digit as-is if it's a number (0–9). Only convert to K if it is clearly a letter (e.g. H, E, O) |
+| `student_name` | Full name exactly as written, in the same order as written — do NOT reorder it and do NOT add commas. Prioritize common Spanish/Chilean names when handwriting is ambiguous |
+| `student_run` | Format: `XXXXXXXX-Y` — no periods, no spaces. Keep check digit as-is if it's a number (0–9). Only convert to K if it is clearly a letter (e.g. H, E, O). If the RUN boxes are blank or unreadable return `null` — never placeholder characters such as dashes or zeros |
 | `student_age` | Integer. Read from the "Edad del estudiante" field (e.g. `9`, `10`, `14`). Return `null` if blank or illegible. Then apply range validation based on `grade_range` from task context: if `grade_range` is `"4° - 5°"` → valid range is 8–11; if `grade_range` is `"6° - 7°"` → valid range is 10–14. If the read value is outside the valid range, return `null` |
 | `student_gender` | `"Hombre"→1`, `"Mujer"→2`, `"Prefiero no decir"→3` |
 | `date` | Format: `DD-MM-YYYY` — always dashes, never slashes |
