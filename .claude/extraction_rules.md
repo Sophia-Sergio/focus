@@ -36,7 +36,7 @@ For **every** question, follow these steps in order. Do not skip any step.
 ### ⚠️ CRITICAL RULE — Multiple marks = INVALID (enforce before all else)
 - Count marks FIRST
 - 2 or more marks → `answer = null`, `notes = "Inválido: Múltiples respuestas detectadas - marca en columna X y Y"`
-- No exceptions except a large correction X (see Step 3)
+- **No exceptions.** A box that was marked and then crossed out, scribbled over or covered by a large X **still counts as a mark** — the student marked it. A large X is never a "correction" that cancels a box or picks the answer.
 
 ---
 
@@ -57,6 +57,7 @@ d) Comparison method:
 e) What counts as a mark (intentional pen/pencil strokes):
 - X, ✓, ⊠, filled circle, slash — even if faint, small, or differently sized
 - Must be drawn inside the checkbox, visually distinct from the border
+- A box with ink inside that is ALSO crossed by a large X (the X may extend beyond the box) counts as marked
 
 f) What does NOT count:
 - Scattered tiny dots (printing artifacts)
@@ -65,6 +66,7 @@ f) What does NOT count:
 - Stray marks outside the checkbox area
 
 g) Write down: `Column 1: [mark/no mark], Column 2: [mark/no mark], Column 3: [mark/no mark], Column 4: [mark/no mark]`
+h) Report that list as `marked_columns` in the output (e.g. `[1, 4]`): every column whose box has any ink, **including boxes that are crossed out**. The `answer` is then decided only from this list (see Steps 3–5)
 
 ---
 
@@ -78,15 +80,13 @@ g) Write down: `Column 1: [mark/no mark], Column 2: [mark/no mark], Column 3: [m
 
 ### STEP 3 — Multiple marks found
 
-a) Is there a **large X that crosses the entire answer square** (not just a small checkbox)? If yes → treat that as the corrected answer, go to Step 4  
-b) Otherwise → invalid
-- `answer = null`
-- `notes = "Inválido: Múltiples respuestas detectadas - marca en columna X y Y"` (use actual column numbers)
+`answer = null` and `notes = "Inválido: Múltiples respuestas detectadas - marca en columna X y Y"` (use the actual column numbers). There is no exception: a large X over a marked box, an erased or scribbled mark, or one dark and one faint mark all count as 2 marks.
 
 Examples that must trigger invalid:
 - Circle in col 1 + X in col 2
 - Dark ⊠ in col 1 + lighter ⊠ in col 2
 - ✓ in col 2 + circle in col 4
+- A box with ink inside crossed by a large X (col 1) + a filled box (col 4) → marked_columns `[1, 4]`, invalid
 
 ---
 
@@ -126,9 +126,9 @@ Return **only** valid JSON — no extra text, no markdown fences.
     "folio": "46654A27"
   },
   "responses": [
-    {"question": "1", "answer": 3, "notes": ""},
-    {"question": "2", "answer": null, "notes": "Inválido: Múltiples respuestas detectadas - marca en columna 1 y 2"},
-    {"question": "3", "answer": null, "notes": "Sin respuesta visible"}
+    {"question": "1", "answer": 3, "marked_columns": [3], "notes": ""},
+    {"question": "2", "answer": null, "marked_columns": [1, 2], "notes": "Inválido: Múltiples respuestas detectadas - marca en columna 1 y 2"},
+    {"question": "3", "answer": null, "marked_columns": [], "notes": "Sin respuesta visible"}
   ]
 }
 ```
@@ -136,7 +136,8 @@ Return **only** valid JSON — no extra text, no markdown fences.
 Rules:
 - All `total_questions` responses must be present
 - All notes must be written in **Spanish**
-- No extra fields beyond `question`, `answer`, `notes` in each response object
+- No extra fields beyond `question`, `answer`, `marked_columns`, `notes` in each response object
+- `marked_columns` is the evidence for `answer`: exactly one column → that is the answer; none or 2+ → `answer = null`
 
 ---
 

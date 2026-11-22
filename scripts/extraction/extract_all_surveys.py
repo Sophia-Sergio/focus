@@ -255,6 +255,35 @@ The extraction rules are in the system prompt. Extract the survey shown in the i
                 "grade_range": "6° - 7°" if wide else "4° - 5°", "total_questions": 68 if wide else 50}
 
     @staticmethod
+    def enforce_mark_rule(responses: List[Dict]) -> int:
+        """Apply the mark-counting rule deterministically from the model's `marked_columns` evidence:
+        exactly 1 marked column -> that is the answer; 2+ -> null (invalid); 0 -> null (no answer).
+        Overrides the model's own `answer` when it disagrees (e.g. a crossed-out box that it ignored).
+        Responses without `marked_columns` are left untouched. Returns how many answers were overridden."""
+        changed = 0
+        for r in responses:
+            cols = r.get("marked_columns")
+            if not isinstance(cols, list):
+                continue
+            cols = sorted({c for c in cols if isinstance(c, int) and 1 <= c <= 4})
+            r["marked_columns"] = cols
+            if len(cols) == 1:
+                new_answer, new_note = cols[0], r.get("notes", "")
+                if str(new_note).startswith(("Inválido", "Sin respuesta")):
+                    new_note = ""
+            elif len(cols) == 0:
+                new_answer = None
+                new_note = r.get("notes") or "Sin respuesta visible"
+            else:
+                new_answer = None
+                listed = ", ".join(map(str, cols[:-1])) + f" y {cols[-1]}"
+                new_note = f"Inválido: Múltiples respuestas detectadas - marca en columna {listed}"
+            if r.get("answer") != new_answer:
+                changed += 1
+            r["answer"], r["notes"] = new_answer, new_note
+        return changed
+
+    @staticmethod
     def build_survey_data(response_text: str, ctx: Dict, usage, batch: bool = False) -> Optional[Dict]:
         """Parse the model's JSON and inject everything Python already knows."""
         pdf_path = ctx["pdf_path"]
@@ -288,6 +317,7 @@ The extraction rules are in the system prompt. Extract the survey shown in the i
             survey_data["metadata"] = new_meta
         else:
             survey_data["metadata"] = meta
+        SurveyExtractor.enforce_mark_rule(survey_data.get("responses", []))
         survey_data["extraction_usage"] = build_usage(usage, batch=batch)
         return survey_data
 
@@ -369,6 +399,23 @@ def find_pending_pdfs(base_dir: str, force: bool = False) -> List[Tuple[str, str
     return pending
 
 
+def find_refresh_pdfs(base_dir: str) -> List[Tuple[str, str]]:
+    """Surveys that already have a JSON but whose responses lack `marked_columns` (extracted before the
+    mark-evidence rule). Used by --refresh-responses."""
+    out = []
+    for pdf in Path(base_dir).rglob("*.pdf"):
+        js = pdf.with_suffix(".json")
+        if not is_survey_pdf(pdf) or not js.exists():
+            continue
+        try:
+            resp = json.loads(js.read_text(encoding="utf-8")).get("responses", [])
+        except ValueError:
+            continue
+        if resp and any("marked_columns" not in r for r in resp):
+            out.append((str(pdf), str(js)))
+    return sorted(out)
+
+
 def _make_extractor(api_key: Optional[str]) -> "SurveyExtractor":
     try:
         return SurveyExtractor(api_key=api_key)
@@ -447,7 +494,8 @@ def _save_state(base_dir: str, state: Dict):
     _state_path(base_dir).write_text(json.dumps(state, ensure_ascii=False, indent=2), encoding="utf-8")
 
 
-def submit_batches(extractor: "SurveyExtractor", base_dir: str, pending: List[Tuple[str, str]]) -> int:
+def submit_batches(extractor: "SurveyExtractor", base_dir: str, pending: List[Tuple[str, str]],
+                   mode: str = "new") -> int:
     """Submit pending PDFs as one or more batches. Returns the number of PDFs submitted."""
     state = _load_state(base_dir)
     in_flight = {path for b in state["batches"] if not b.get("collected") for path in b["items"].values()}
@@ -469,7 +517,7 @@ def submit_batches(extractor: "SurveyExtractor", base_dir: str, pending: List[Tu
             return
         batch = extractor.client.messages.batches.create(requests=chunk)
         state["batches"].append({"id": batch.id, "created": datetime.now().isoformat(timespec="seconds"),
-                                 "items": items, "collected": False})
+                                 "items": items, "collected": False, "mode": mode})
         _save_state(base_dir, state)
         submitted += len(chunk)
         print(f"  submitted batch {batch.id}: {len(chunk)} surveys, {size/1e6:.0f} MB "
@@ -520,7 +568,8 @@ def collect_batches(extractor: "SurveyExtractor", base_dir: str, force: bool = F
                 failed += 1
                 print(f"  ✗ {Path(pdf).name}: {result.result.type}")
                 continue
-            if json_path.exists() and not force:
+            refresh = b.get("mode") == "refresh"
+            if json_path.exists() and not force and not refresh:
                 continue
             message = result.result.message
             ctx = extractor.context_for(pdf)
@@ -529,6 +578,27 @@ def collect_batches(extractor: "SurveyExtractor", base_dir: str, force: bool = F
             except Exception as e:
                 failed += 1
                 print(f"  ✗ {Path(pdf).name}: {e}")
+                continue
+            if data and refresh:
+                # keep everything already in the JSON (metadata, folio, rename provenance); replace answers only
+                try:
+                    existing = json.loads(json_path.read_text(encoding="utf-8"))
+                except (ValueError, OSError):
+                    failed += 1
+                    print(f"  ✗ {Path(pdf).name}: cannot read existing JSON")
+                    continue
+                existing["responses"] = data["responses"]
+                existing["reextraction_usage"] = data["extraction_usage"]
+                existing.setdefault("metadata", {})["responses_refreshed"] = datetime.now().strftime("%Y-%m-%d")
+                data = existing
+                data["extraction_usage"] = existing.get("extraction_usage", data["reextraction_usage"])
+                u = data["reextraction_usage"]
+                if extractor.save_survey_json(data, str(json_path)):
+                    tokens += u["total_tokens"]
+                    cost += u["cost_usd"]
+                    saved += 1
+                else:
+                    failed += 1
                 continue
             if data and extractor.save_survey_json(data, str(json_path)):
                 u = data["extraction_usage"]
@@ -635,6 +705,9 @@ def main():
                         help="Submit pending PDFs via the Batches API (50%% cheaper, asynchronous)")
     parser.add_argument("--collect", action="store_true",
                         help="Collect finished batches and write their JSONs")
+    parser.add_argument("--refresh-responses", action="store_true",
+                        help="With --batch: re-extract surveys whose JSON lacks `marked_columns` and replace only "
+                             "their `responses` (metadata, folio and rename info are kept)")
     parser.add_argument("--wait", action="store_true",
                         help="With --batch: poll and collect until all batches finish")
 
@@ -651,12 +724,14 @@ def main():
                 pdf = Path(args.target)
                 pending = [(str(pdf), str(pdf.with_suffix(".json")))] if is_survey_pdf(pdf) else []
                 pending = [x for x in pending if args.force or not Path(x[1]).exists()]
+            elif args.refresh_responses:
+                pending = find_refresh_pdfs(args.target)
             else:
                 pending = find_pending_pdfs(args.target, force=args.force)
             if args.max_files:
                 pending = pending[:args.max_files]
             print(f"{len(pending)} surveys to submit via Batches API (~50% cheaper, async)")
-            n = submit_batches(extractor, args.target, pending)
+            n = submit_batches(extractor, args.target, pending, mode="refresh" if args.refresh_responses else "new")
             print(f"Submitted {n} surveys. Collect later with: extract_all_surveys.py {args.target} --collect")
         if args.collect or args.wait:
             while True:
@@ -664,6 +739,26 @@ def main():
                 if done or not args.wait:
                     break
                 time.sleep(60)
+        return
+
+    if args.refresh_responses and not args.batch and os.path.isfile(args.target):
+        pdf = Path(args.target)
+        js = pdf.with_suffix(".json")
+        if not js.exists() or not is_survey_pdf(pdf):
+            print(f"Nothing to refresh: {js.name} not found or not a survey file")
+            sys.exit(1)
+        extractor = _make_extractor(args.api_key)
+        data = extractor.extract_survey_data(str(pdf))
+        if not data:
+            print("✗ Failed to extract data")
+            sys.exit(1)
+        existing = json.loads(js.read_text(encoding="utf-8"))
+        existing["responses"] = data["responses"]
+        existing["reextraction_usage"] = data["extraction_usage"]
+        existing.setdefault("metadata", {})["responses_refreshed"] = datetime.now().strftime("%Y-%m-%d")
+        extractor.save_survey_json(existing, str(js))
+        u = data["extraction_usage"]
+        print(f"✓ Refreshed responses in {js.name} ({u['total_tokens']} tokens, ${u['cost_usd']:.4f}); metadata kept")
         return
 
     if os.path.isfile(args.target):
